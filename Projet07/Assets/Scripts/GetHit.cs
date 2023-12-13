@@ -18,11 +18,6 @@ public class GetHit : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     // Méthode appelée lorsqu'un autre collider entre en collision avec le collider de cet objet
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,11 +33,8 @@ public class GetHit : MonoBehaviour
     // Coroutine pour changer temporairement la couleur du SpriteRenderer
     IEnumerator ColorChange()
     {
-        // Changement de la couleur du SpriteRenderer à la couleur de frappe
         spriteRenderer.color = hitColor;
-        // Attente pendant une courte durée spécifiée
         yield return new WaitForSeconds(hitColorDuration);
-        // Rétablissement de la couleur normale après la durée spécifiée
         spriteRenderer.color = normalColor;
     }
 }

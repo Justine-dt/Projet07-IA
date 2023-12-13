@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerBrain : MonoBehaviour
 {
     [SerializeField] InputActionReference _moveAction;
-    [SerializeField]
-    EntityMove entityMove;
+    [SerializeField] EntityMove _entityMove;
 
     Coroutine _move;
 
@@ -30,7 +29,7 @@ public class PlayerBrain : MonoBehaviour
     {
         while (true)
         {
-            entityMove.Move(dir);
+            _entityMove.Move(dir);
             yield return null;
         }
     }

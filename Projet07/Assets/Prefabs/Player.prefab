@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
-  entityMove: {fileID: 5297855177853542563}
+  _entityMove: {fileID: 5297855177853542563}
 --- !u!4 &6897512402742577135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
