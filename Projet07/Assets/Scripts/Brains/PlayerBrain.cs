@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBrain : MonoBehaviour
+public class PlayerBrain : Brain
 {
     [SerializeField] InputActionReference _moveAction;
     [SerializeField] EntityMove _entityMove;
