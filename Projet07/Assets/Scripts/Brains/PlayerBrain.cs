@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerBrain : MonoBehaviour
 {
     [SerializeField] InputActionReference _moveAction;
+    [SerializeField] EntityMove _entityMove;
 
     Coroutine _move;
 
@@ -17,11 +17,20 @@ public class PlayerBrain : MonoBehaviour
 
     private void CancelMove(InputAction.CallbackContext obj)
     {
-        throw new System.NotImplementedException();
+        StopCoroutine(_move);
     }
 
     private void StartMove(InputAction.CallbackContext obj)
     {
-        //
+        _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
+    }
+
+    private IEnumerator Move(Vector2 dir)
+    {
+        while (true)
+        {
+            _entityMove.Move(dir);
+            yield return null;
+        }
     }
 }

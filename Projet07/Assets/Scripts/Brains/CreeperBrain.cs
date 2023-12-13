@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CreeperBrain : MonoBehaviour
+public class CreeperBrain : Brain
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private IdleState _idleState = new();
+    private ChaseState _chaseState = new();
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        ChangeState(_idleState);
     }
 }
