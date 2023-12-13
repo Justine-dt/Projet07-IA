@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Projet07/Assets/Resources/Tilemap_Palette.meta
+guid: 19c6c5b3e6018a6458289e2f7920a21d
+folderAsset: yes
+========
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+>>>>>>>> main:Projet07/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
