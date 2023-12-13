@@ -7,6 +7,12 @@ public abstract class State
         _brain = brain;
     }
 
+    public virtual void OnHurt()
+    {
+        //Animation
+        _brain.ClearTarget();
+    }
+
     public virtual void OnUpdate() { }
 
     public virtual void OnExit() { }
