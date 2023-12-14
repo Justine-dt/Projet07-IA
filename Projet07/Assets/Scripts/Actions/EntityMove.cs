@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityMove : MonoBehaviour
@@ -9,6 +7,6 @@ public class EntityMove : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        _player.transform.Translate(direction * Time.deltaTime * 2);
+        _player.transform.Translate(direction * Time.deltaTime * 1);
     }
 }
