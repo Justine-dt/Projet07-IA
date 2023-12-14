@@ -1,5 +1,3 @@
-using UnityEngine;
-using System.Collections;
 public abstract class State
 {
     protected Brain _brain;
@@ -10,10 +8,7 @@ public abstract class State
         _brain = brain;
     }
 
-    public virtual void OnHurt()
-    {
-        _brain.ClearTarget();
-    }
+    public virtual void OnHurt() { }
 
     public virtual void OnUpdate() { }
 

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EntityMove : MonoBehaviour
 {
-
     [SerializeField] GameObject _player;
 
     public void Move(Vector2 direction)

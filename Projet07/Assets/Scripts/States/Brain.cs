@@ -1,9 +1,13 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
     [SerializeField] protected EntityMove _entityMove;
     [SerializeField] protected Transform _render;
+    [SerializeField] protected bool _isAggressive;
+    [SerializeField] protected bool _canAttackAnybody;
+    [SerializeField, Tag] protected string[] _additionalTargets;
 
     public EntityMove EntityMove => _entityMove;
     public Transform Render => _render;
@@ -30,8 +34,17 @@ public abstract class Brain : MonoBehaviour
         ChangeState(newState);
     }
 
-    public void ClearTarget()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        _target = null;
+        string tag = collision.gameObject.tag;
+        bool targetIsValid = tag == "Player" || _canAttackAnybody;
+
+        foreach (var target in _additionalTargets)
+        {
+            if (target == tag) targetIsValid = true;
+        }
+
+        if (!targetIsValid || !_isAggressive || collision.gameObject.name == "Brain") return;
+        ChangeState(new ChaseState(), collision.gameObject);
     }
 }

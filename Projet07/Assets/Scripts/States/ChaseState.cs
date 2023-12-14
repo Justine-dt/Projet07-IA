@@ -7,9 +7,6 @@ public class ChaseState : State
         var pos = _brain.Render.transform.position;
         var targetPos = _brain.Target.transform.position;
 
-        while (Vector2.Distance(pos, targetPos) > 1f)
-        {
-            _brain.EntityMove.Move(targetPos - pos);
-        }
+        if (Vector2.Distance(pos, targetPos) > 1f) _brain.EntityMove.Move(targetPos - pos);
     }
 }
