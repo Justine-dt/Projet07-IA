@@ -10,41 +10,72 @@ public class PlayerBrain : Brain
     [SerializeField] EntityShoot _entityShoot;
 
     Coroutine _move;
+    Coroutine _shootRoutine;
 
-    void Start()
+    private void Start()
     {
+        // Set up event handlers for movement and shooting actions
         _moveAction.action.started += StartMove;
         _moveAction.action.canceled += CancelMove;
 
-        /*_shootAction.action.started += StartShoot;
-        _shootAction.action.canceled += CancelShoot;*/
+        _shootAction.action.started += StartShoot;
+        _shootAction.action.canceled += StopShoot;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from event handlers to avoid memory leaks
+        _moveAction.action.started -= StartMove;
+        _moveAction.action.canceled -= CancelMove;
+
+        _shootAction.action.started -= StartShoot;
+        _shootAction.action.canceled -= StopShoot;
     }
 
     private void StartMove(InputAction.CallbackContext obj)
     {
+        // Start the coroutine for continuous movement
         _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
     }
 
     private void CancelMove(InputAction.CallbackContext obj)
     {
+        // Stop the movement coroutine when the move action is canceled (button released)
         StopCoroutine(_move);
     }
 
-    /*private void StartShoot(InputAction.CallbackContext obj)
+    private void StartShoot(InputAction.CallbackContext obj)
     {
-        _shootRoutine = StartCoroutine(StartShoot());
+        // Start the shooting coroutine when the shoot action is initiated
+        _shootRoutine = StartCoroutine(Shoot());
     }
 
-    private void CancelShoot(InputAction.CallbackContext obj)
+    private void StopShoot(InputAction.CallbackContext obj)
     {
-        _shootRoutine = StartCoroutine(StopShoot());
-    }*/
+        // Stop the shooting coroutine when the shoot action is canceled (button released)
+        if (_shootRoutine != null)
+        {
+            StopCoroutine(_shootRoutine);
+            _shootRoutine = null;
+        }
+    }
+    private IEnumerator Shoot()
+    {
+        // Start the shooting coroutine in the EntityShoot component
+        _entityShoot.StartShoot();
 
+        // Wait until the shoot action is canceled (button released)
+        yield return new WaitUntil(() => _shootAction.action.phase == InputActionPhase.Canceled);
+
+        // Stop the shooting coroutine in the EntityShoot component
+        _entityShoot.StopShoot();
+    }
 
     private IEnumerator Move(Vector2 dir)
     {
         while (true)
         {
+            // Continuously update the player's position based on the input direction
             _entityMove.Move(dir);
             yield return null;
         }

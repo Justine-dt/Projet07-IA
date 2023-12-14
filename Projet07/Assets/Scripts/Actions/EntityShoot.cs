@@ -10,7 +10,6 @@ public class EntityShoot : MonoBehaviour
             1) crée une bullet 
             2) déclanche une attente
     */
-
     [SerializeField] Transform _root;
     [SerializeField] GameObject _bulletPrefab;
 
@@ -23,14 +22,14 @@ public class EntityShoot : MonoBehaviour
             while (true)
             {
                 // Create a bullet
-                GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
-                /*BulletScript bulletScript = bullet.GetComponent<BulletScript>();
+                GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+                BulletScript bulletScript = bullet.GetComponent<BulletScript>();
                 // Vérifie si le script de la balle est présent
                 if (bulletScript != null)
                 {
-                    // Définir la direction de la balle (peut être ajusté selon la conception de ton jeu)
+                    // Définir la direction de la balle 
                     bulletScript.SetDirection(transform.up);
-                }*/
+                }
 
                 // Attendre avant de tirer à nouveau
                 yield return new WaitForSeconds(1f);
