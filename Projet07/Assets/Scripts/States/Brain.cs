@@ -8,15 +8,25 @@ public abstract class Brain : MonoBehaviour
     [SerializeField] protected bool _isAggressive;
     [SerializeField] protected bool _canAttackAnybody;
     [SerializeField, Tag] protected string[] _additionalTargets;
+    [SerializeField] protected bool _isAlwaysChasing;
 
     public EntityMove EntityMove => _entityMove;
     public Transform Render => _render;
     public GameObject Target => _target;
 
     private GameObject _target;
-    protected State _currentState;
 
-    private void Update()
+    protected State _currentState;
+    protected IdleState _idleState = new();
+    protected ChaseState _chaseState = new();
+    protected DetonateState _detonateState = new();
+
+    private void Awake()
+    {
+        ChangeState(_idleState);
+    }
+
+    protected virtual void Update()
     {
         _currentState?.OnUpdate();
     }
@@ -34,8 +44,22 @@ public abstract class Brain : MonoBehaviour
         ChangeState(newState);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!_isAggressive && !IsTriggerValid(collision)) return;
+        ChangeState(_chaseState, collision.gameObject);
+    }
+
+    protected virtual void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!_isAlwaysChasing && !IsTriggerValid(collision)) return;
+        ChangeState(_idleState);
+    }
+
+    protected bool IsTriggerValid(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Brain") return false;
+
         string tag = collision.gameObject.tag;
         bool targetIsValid = tag == "Player" || _canAttackAnybody;
 
@@ -44,7 +68,6 @@ public abstract class Brain : MonoBehaviour
             if (target == tag) targetIsValid = true;
         }
 
-        if (!targetIsValid || !_isAggressive || collision.gameObject.name == "Brain") return;
-        ChangeState(new ChaseState(), collision.gameObject);
+        return targetIsValid;
     }
 }
