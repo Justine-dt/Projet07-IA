@@ -11,7 +11,5 @@ public class ChaseState : State
         {
             _brain.EntityMove.Move(targetPos - pos);
         }
-
-        _brain.Render.position = _brain.Target.transform.position;
     }
 }
