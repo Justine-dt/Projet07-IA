@@ -34,7 +34,7 @@ public class PlayerBrain : Brain
     private void StartMove(InputAction.CallbackContext obj)
     {
         // Start the coroutine for continuous movement
-        _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
+        _move = StartCoroutine(Move(obj));
         //_move = StartCoroutine(Move(obj));
     }
 
