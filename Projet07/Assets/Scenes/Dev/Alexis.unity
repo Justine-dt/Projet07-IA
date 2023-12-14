@@ -291,6 +291,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3670842596650257467, guid: d537d2d38efe88f42896d304268af784, type: 3}
   m_PrefabInstance: {fileID: 382442645}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &692591516 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8640343955612991456, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
+  m_PrefabInstance: {fileID: 1430816212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &692591520 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5481373338580671124, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
@@ -13408,6 +13413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4258896805304885286, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 692591516}
     - target: {fileID: 5481373338580671124, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
       propertyPath: m_FlipX
       value: 0
