@@ -9,6 +9,6 @@ public class EntityMove : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        _player.transform.Translate(direction);
+        _player.transform.Translate(direction * Time.deltaTime * 2);
     }
 }
