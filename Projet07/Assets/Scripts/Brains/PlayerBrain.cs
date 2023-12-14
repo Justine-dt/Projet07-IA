@@ -6,7 +6,6 @@ public class PlayerBrain : Brain
 {
     [SerializeField] InputActionReference _moveAction;
     [SerializeField] InputActionReference _shootAction;
-    [SerializeField] EntityMove _entityMove;
     [SerializeField] EntityShoot _entityShoot;
 
     Coroutine _move;
@@ -36,6 +35,7 @@ public class PlayerBrain : Brain
     {
         // Start the coroutine for continuous movement
         _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
+        //_move = StartCoroutine(Move(obj));
     }
 
     private void CancelMove(InputAction.CallbackContext obj)
@@ -71,12 +71,13 @@ public class PlayerBrain : Brain
         _entityShoot.StopShoot();
     }
 
-    private IEnumerator Move(Vector2 dir)
+    private IEnumerator Move(InputAction.CallbackContext obj)
     {
         while (true)
         {
             // Continuously update the player's position based on the input direction
-            _entityMove.Move(dir);
+            //_entityMove.Move(dir);
+            _entityMove.Move(obj.ReadValue<Vector2>());
             yield return null;
         }
     }

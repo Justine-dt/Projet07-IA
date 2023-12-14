@@ -2,6 +2,11 @@ using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected EntityMove _entityMove;
+    [SerializeField] protected Transform _render;
+
+    public EntityMove EntityMove => _entityMove;
+    public Transform Render => _render;
     public GameObject Target => _target;
 
     private GameObject _target;
