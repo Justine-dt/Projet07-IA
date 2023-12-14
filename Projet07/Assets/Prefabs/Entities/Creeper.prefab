@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityMove: {fileID: 5317708600559520804}
   _render: {fileID: 6913423483021945704}
+  _isAggressive: 1
+  _additionalTargets: []
 --- !u!4 &6913423483021945704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -339,12 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5add959b9b2414e479f185187f32bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entityMove: {fileID: 5297855177853542563}
+  _render: {fileID: 0}
+  _isAggressive: 0
+  _additionalTargets: []
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _shootAction: {fileID: -2629936366166286353, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
-  _entityMove: {fileID: 5297855177853542563}
   _entityShoot: {fileID: 3856137402817283973}
---- !u!4 &6897512402742577135 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
-  m_PrefabInstance: {fileID: 3741529558154768572}
-  m_PrefabAsset: {fileID: 0}

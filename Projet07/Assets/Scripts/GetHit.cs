@@ -11,12 +11,12 @@ public class GetHit : MonoBehaviour
 
     void Awake()
     {
-        Collision.OnHurt += ChangeColor;
+        Collision.OnCollide += ChangeColor;
     }
 
     private void OnDestroy()
     {
-        Collision.OnHurt -= ChangeColor;
+        Collision.OnCollide -= ChangeColor;
     }
 
     void ChangeColor()
