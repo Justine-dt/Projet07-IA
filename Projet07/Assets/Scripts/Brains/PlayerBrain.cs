@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerBrain : Brain
 {
     [SerializeField] InputActionReference _moveAction;
+    [SerializeField] InputActionReference _shootAction;
     [SerializeField] EntityMove _entityMove;
+    [SerializeField] EntityShoot _entityShoot;
 
     Coroutine _move;
 
@@ -13,6 +15,14 @@ public class PlayerBrain : Brain
     {
         _moveAction.action.started += StartMove;
         _moveAction.action.canceled += CancelMove;
+
+        /*_shootAction.action.started += StartShoot;
+        _shootAction.action.canceled += CancelShoot;*/
+    }
+
+    private void StartMove(InputAction.CallbackContext obj)
+    {
+        _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
     }
 
     private void CancelMove(InputAction.CallbackContext obj)
@@ -20,10 +30,16 @@ public class PlayerBrain : Brain
         StopCoroutine(_move);
     }
 
-    private void StartMove(InputAction.CallbackContext obj)
+    /*private void StartShoot(InputAction.CallbackContext obj)
     {
-        _move = StartCoroutine(Move(obj.ReadValue<Vector2>()));
+        _shootRoutine = StartCoroutine(StartShoot());
     }
+
+    private void CancelShoot(InputAction.CallbackContext obj)
+    {
+        _shootRoutine = StartCoroutine(StopShoot());
+    }*/
+
 
     private IEnumerator Move(Vector2 dir)
     {
