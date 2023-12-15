@@ -34,6 +34,7 @@ public class DetonateColor : MonoBehaviour
     {
         if (source != transform) return;
         StopCoroutine(_detonate);
+        _hitColorDuration = 0.2f;
     }
 
     IEnumerator ColorChange()
