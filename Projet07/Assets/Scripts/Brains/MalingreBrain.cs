@@ -12,6 +12,8 @@ public class MalingreBrain : MonoBehaviour
 
     public GameObject _player;
     public GameObject[] obstacles;
+    int numberOfObstacles;
+
     public GameObject nearestObstacle;
 
     public Vector2 target;
@@ -21,23 +23,40 @@ public class MalingreBrain : MonoBehaviour
 
     void Start()
     {
-        #region Recherche d'obstacles et calcul de target,,,,
+        SetTarget();
+    }
+
+    void Update()
+    {
+        //Recherche si le nombre d'obstacles a baissé | Si oui, refaire la recherche
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        if(obstacles.Length != numberOfObstacles)
+        {
+            SetTarget();
+        }
+
+        _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
+    }
+
+    void SetTarget()
+    {
         _player = GameObject.FindGameObjectWithTag("Player");
 
         //Find every obstacles
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        float baseMagnitude = 100.0f;
-
+        numberOfObstacles = obstacles.Length;
         //Find the nearest obstacle
         if (obstacles.Length > 0)
         {
-            foreach (GameObject obstacle in obstacles)
+            nearestObstacle = obstacles[0];
+            for (int i = 0; i < obstacles.Length; i++)
             {
+                GameObject currentObstacle = obstacles[i];
+
                 //If the current obstacle is nearer than the previous one, update the variable nearestObstacle
-                if (obstacle.transform.position.magnitude < baseMagnitude)
+                if ((_malingre.transform.position - currentObstacle.transform.position).magnitude < (_malingre.transform.position - nearestObstacle.transform.position).magnitude)
                 {
-                    nearestObstacle = obstacle;
-                    baseMagnitude = obstacle.transform.position.magnitude;
+                    nearestObstacle = currentObstacle;
                 }
             }
         }
@@ -71,14 +90,6 @@ public class MalingreBrain : MonoBehaviour
                 target.y -= 1.4f;
             }
         }
-        #endregion
-
     }
-
-    void Update()
-    {
-        _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
-    }
-
     
 }
