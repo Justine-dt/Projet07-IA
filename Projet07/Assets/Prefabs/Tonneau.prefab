@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8018868
       objectReference: {fileID: 0}
+    - target: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9079508088356814591, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Constraints
       value: 7

@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9079508088356814591, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -113,6 +117,9 @@ MonoBehaviour:
   renderer: {fileID: 2279776044610954969}
   _player: {fileID: 0}
   obstacles: []
+  nearestObstacle: {fileID: 0}
+  target: {x: 0, y: 0}
+  playerPosition: {x: 0, y: 0}
 --- !u!212 &2279776044610954969 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

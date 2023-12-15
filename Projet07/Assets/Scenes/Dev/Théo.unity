@@ -396,7 +396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _malingre: {fileID: 534133295}
   renderer: {fileID: 2038979279}
+  _player: {fileID: 0}
   obstacles: []
+  nearestObstacle: {fileID: 0}
+  target: {x: 0, y: 0}
+  playerPosition: {x: 0, y: 0}
 --- !u!1 &785253390
 GameObject:
   m_ObjectHideFlags: 0
@@ -8332,6 +8336,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8618690062205762887, guid: 583438d771bf1b045be4253ef06e0c1d, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8566,11 +8574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401023714738312768, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.02
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 2401023714738312768, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.76
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 2401023714738312768, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8603,6 +8611,10 @@ PrefabInstance:
     - target: {fileID: 2401023714738312768, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824718153873527638, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6795690440848397368, guid: 5abcc21b165e5c0448f70038ea8f0768, type: 3}
       propertyPath: m_Constraints
@@ -10646,7 +10658,7 @@ Tilemap:
       m_TileIndex: 17
       m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -11137,8 +11149,10 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 222
+  - m_RefCount: 221
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 1
+    m_Data: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
