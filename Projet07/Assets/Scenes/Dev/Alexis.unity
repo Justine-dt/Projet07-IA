@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1619481812}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 3.11
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -366,7 +366,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13356,6 +13356,10 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 692591516}
+    - target: {fileID: 4258896805304885286, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
+      propertyPath: hitColorDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5481373338580671124, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -35559,10 +35563,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1090457352}
+  - {fileID: 878025805}
   - {fileID: 7408858160929678406}
   - {fileID: 1557736126}
   - {fileID: 382442645}
   - {fileID: 1430816212}
-  - {fileID: 878025805}
   - {fileID: 1456763776}
   - {fileID: 1619481812}
