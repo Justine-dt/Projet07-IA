@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068e11fa1efd8d4898e62ac647749c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 885442746188714021}
   _entityMove: {fileID: 5317708600559520804}
   _render: {fileID: 6913423483021945704}
   _isAggressive: 1
