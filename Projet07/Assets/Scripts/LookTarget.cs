@@ -13,7 +13,7 @@ public class LookTarget : MonoBehaviour
     void Update()
     {
         var dir = _target.position - transform.position;
-        var deg = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        var deg = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, deg);
     }
 }

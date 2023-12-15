@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BatBrain : Brain
 {
-    [SerializeField] EntityMove _entityMove;
     [SerializeField] SpriteRenderer _spriteRenderer;
     Coroutine _move;
 
