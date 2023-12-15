@@ -6,7 +6,7 @@ public class EntityMove : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        Debug.Log(direction.x + ", " + direction.y);
+        //Debug.Log(direction.x + ", " + direction.y);
         _player.transform.Translate(direction * Time.deltaTime * 4);
     }
 }

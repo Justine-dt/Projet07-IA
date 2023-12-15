@@ -46,7 +46,7 @@ public abstract class Brain : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_isAggressive && !IsTriggerValid(collision)) return;
+        if (!_isAggressive || !IsTriggerValid(collision)) return;
         ChangeState(_chaseState, collision.gameObject);
     }
 

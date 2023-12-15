@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b16a891cccd2764280e8dbe42d4eb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 8640343955612991456}
   _spriteRenderer: {fileID: 0}
   newAnimationClip: {fileID: 0}
 --- !u!61 &3907103092668808879
