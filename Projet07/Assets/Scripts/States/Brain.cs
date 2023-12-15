@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
     [SerializeField] protected Transform _render;
     [SerializeField] protected bool _isAggressive;
@@ -13,6 +14,7 @@ public abstract class Brain : MonoBehaviour
     public EntityMove EntityMove => _entityMove;
     public Transform Render => _render;
     public GameObject Target => _target;
+    public SpriteRenderer Sprite => _sprite;
 
     private GameObject _target;
 
@@ -21,7 +23,7 @@ public abstract class Brain : MonoBehaviour
     protected ChaseState _chaseState = new();
     protected DetonateState _detonateState = new();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         ChangeState(_idleState);
     }
