@@ -7,16 +7,16 @@ public class GetHit : MonoBehaviour
 
     public Color normalColor = Color.white;
     public Color hitColor = Color.red;
-    public float hitColorDuration = 0.2f;
+    public float hitColorDuration = 0.005f;
 
     void Awake()
     {
-        Collision.OnHurt += ChangeColor;
+        Collision.OnCollide += ChangeColor;
     }
 
     private void OnDestroy()
     {
-        Collision.OnHurt -= ChangeColor;
+        Collision.OnCollide -= ChangeColor;
     }
 
     void ChangeColor()
