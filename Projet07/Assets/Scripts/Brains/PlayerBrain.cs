@@ -11,7 +11,7 @@ public class PlayerBrain : Brain
     Coroutine _move;
     Coroutine _shootRoutine;
 
-    private void Start()
+    protected override void Awake()
     {
         // Set up event handlers for movement and shooting actions
         _moveAction.action.started += StartMove;
