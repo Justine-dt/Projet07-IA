@@ -1,41 +1,53 @@
-using System.Collections;
 using UnityEngine;
 
 public class BatBrain : Brain
 {
-    [SerializeField] SpriteRenderer _spriteRenderer;
-    Coroutine _move;
+    private static bool isAnyBatInChaseState = false;
+    private Animator batAnimator;
 
-    void Start()
+    protected override void Awake()
     {
-        _move = StartCoroutine(RandomMove());
+        batAnimator = GetComponent<Animator>();
+
+        _target = GameObject.FindWithTag("PlayerBrain");
+        ChangeState(_chaseState);
     }
 
-    private IEnumerator RandomMove()
+    protected override void ChangeState(State newState, GameObject target)
     {
-        while (true)
+        base.ChangeState(newState, target);
+
+        if (newState is ChaseState)
         {
-            Vector2 randomDestination = new Vector2(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-
-            if (randomDestination.x <0)
+            if (!isAnyBatInChaseState)
             {
-                _spriteRenderer.flipX = true;
+                isAnyBatInChaseState = true;
+                ChangeSpriteAnimation("Bat_Angry_Idle_Move");
+                ChangeAllBatBrainsState(new ChaseState(), target);
             }
-            else if (_spriteRenderer.flipX = true && randomDestination.x > 0)
-            {
-                _spriteRenderer.flipX = false;
-            }
+        }
+        else
+        {
+            isAnyBatInChaseState = false;
+            ChangeSpriteAnimation("Bat_Idle_Move");
+        }
+    }
 
-            while (Vector2.Distance(transform.position, randomDestination)  > 1f)
-            {
+    private void ChangeAllBatBrainsState(State state, GameObject target)
+    {
+        BatBrain[] allBatBrains = FindObjectsOfType<BatBrain>();
 
-                // Déplace le joueur avec la direction aléatoire
-                _entityMove.Move(randomDestination - (Vector2)transform.position);
-                yield return null;
-            }
+        foreach (BatBrain batBrain in allBatBrains)
+        {
+            batBrain.ChangeState(state, target);
+        }
+    }
 
-            // Attend un certain temps avant de générer une nouvelle direction
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+    private void ChangeSpriteAnimation(string animationName)
+    {
+        if (batAnimator != null)
+        {
+            batAnimator.Play(animationName);
         }
     }
 }
