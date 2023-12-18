@@ -11,7 +11,9 @@ public abstract class Brain : MonoBehaviour
     [SerializeField] protected bool _canAttackAnybody;
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
+    [SerializeField] protected bool _dealDamageOnCollide;
 
+    public bool DealDamageOnCollide => _dealDamageOnCollide;
     public EntityMove EntityMove => _entityMove;
     public EntityStats EntityStats => _entityStats;
     public Transform Render => _render;

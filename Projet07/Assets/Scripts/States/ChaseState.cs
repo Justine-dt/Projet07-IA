@@ -37,7 +37,13 @@ public class ChaseState : State
     {
         base.OnCollide();
         _chasing = false;
-        _brain.EntityStats.Kill();
-        //Debug.Log("collide, stop chasing");
+
+        if (_brain.DealDamageOnCollide && WaitFor(_stats[Attribute.ATKSPEED])) Attack();
+    }
+
+    private void Attack()
+    {
+        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK]);
+        ResetCooldown();
     }
 }
