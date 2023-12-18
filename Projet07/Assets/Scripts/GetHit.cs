@@ -24,7 +24,6 @@ public class GetHit : MonoBehaviour
         StartCoroutine(ColorChange());
     }
 
-    // Coroutine pour changer temporairement la couleur du SpriteRenderer
     IEnumerator ColorChange()
     {
         _sprite.color = hitColor;
