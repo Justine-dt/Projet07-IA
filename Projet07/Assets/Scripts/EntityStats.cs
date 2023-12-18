@@ -1,24 +1,25 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Stats
+public enum Stats
 {
     HP,
     ATTACK,
+    SPEED
 };
 
 public class EntityStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Dictionary<Stats, int> Stats => _stats;
+    private Dictionary<Stats, int> _stats;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _stats = new();
+        foreach (Stats stat in Enum.GetValues(typeof(Stats)))
+        {
+            _stats[stat] = 4;
+        }
     }
 }

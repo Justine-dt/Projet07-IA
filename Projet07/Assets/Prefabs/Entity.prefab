@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2716595567317280010}
+  _entityStats: {fileID: 1992279926591003811}
 --- !u!1 &7559504241314752539
 GameObject:
   m_ObjectHideFlags: 0
