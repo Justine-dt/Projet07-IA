@@ -7,8 +7,8 @@ public class Collision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Brain") return;
-        Debug.Log("trigger");
-        OnCollide?.Invoke();
+        //if (collision.gameObject.name == "Brain") return;
+        //Debug.Log("trigger");
+        //OnCollide?.Invoke();
     }
 }

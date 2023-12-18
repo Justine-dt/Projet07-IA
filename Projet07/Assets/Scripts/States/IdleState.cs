@@ -2,21 +2,18 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    private float _startTime;
     private float _random;
     private Vector2 _randomDestination;
 
     public override void OnEnter(Brain brain)
     {
         base.OnEnter(brain);
-
-        _startTime = Time.time;
         _random = -1;
     }
 
     public override void OnUpdate()
     {
-        if (_random == -1 || Time.time >= _startTime + _random) NewDestination();
+        if (_random == -1 || WaitFor(_random)) NewDestination();
 
         if (Vector2.Distance(_brain.Render.position, _randomDestination) > 1f)
         {
@@ -38,6 +35,6 @@ public class IdleState : State
             _brain.Sprite.flipX = false;
         }
 
-        _startTime = Time.time;
+        ResetCooldown();
     }
 }
