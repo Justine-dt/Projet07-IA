@@ -30,11 +30,14 @@ public class MalingreBrain : Brain
     {
         //Recherche si le nombre d'obstacles a baissé | Si oui, refaire la recherche
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        numberOfObstacles = obstacles.Length;
 
-        if (obstacles.Length != numberOfObstacles && obstacles.Length != 0)
+        if(obstacles.Length > 0)
         {
-            Debug.Log("dsgdrh");
+            SetTarget();
+            numberOfObstacles = obstacles.Length;
+        }
+        else if (obstacles.Length != numberOfObstacles)
+        {
             SetTarget();
             numberOfObstacles = obstacles.Length;
         }
@@ -54,6 +57,7 @@ public class MalingreBrain : Brain
         //Find every obstacles
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         numberOfObstacles = obstacles.Length;
+
         //Find the nearest obstacle
         if (obstacles.Length > 0)
         {
@@ -77,25 +81,29 @@ public class MalingreBrain : Brain
         //Check position of player to go to the best side of the nearest obstacle to hide
         playerPosition = _player.transform.position - _malingre.transform.position;
 
-        if (Mathf.Abs(target.x - _player.transform.position.x) > Mathf.Abs(target.y - _player.transform.position.y))
+        if (Mathf.Abs(target.x - playerPosition.x) > Mathf.Abs(target.y - playerPosition.y))
         {
-            if (target.x - _player.transform.position.x > 0)
+            if (target.x - playerPosition.x > 0)
             {
+                Debug.Log("Right");
                 target.x += 1;
             }
             else
             {
+                Debug.Log("Left");
                 target.x -= 1;
             }
         }
         else
         {
-            if (target.y - _player.transform.position.y > 0)
+            if (target.y - playerPosition.y > 0)
             {
+                Debug.Log("Up");
                 target.y += 1.4f;
             }
             else
             {
+                Debug.Log("Down");
                 target.y -= 1.4f;
             }
         }
