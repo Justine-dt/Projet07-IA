@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50ae227193cc46149830e08c9f177e94
+guid: f3515817cfecb634eb1e469bf4aca727
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_up_coward_0
+      name: idle_left_coward_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 26
         y: 19
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a20ed7a443a80448b796e05ec1ffe6d
-      internalID: 1582932399
+      spriteID: 7e212a75d9bf96348a0cccfcfd4bf969
+      internalID: -1478567983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_1
+      name: idle_left_coward_1
       rect:
         serializedVersion: 2
-        x: 88
+        x: 89
         y: 19
         width: 17
-        height: 15
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dcbcbb2cdf32174390c06dca095a47b
-      internalID: 273307468
+      spriteID: 084e4bdc7e00e8342818a7535b49ca96
+      internalID: -34874160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_2
+      name: idle_left_coward_2
       rect:
         serializedVersion: 2
         x: 152
         y: 19
         width: 17
-        height: 16
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af6b16b6571ceb84e875e28da8f6e0fc
-      internalID: -243742693
+      spriteID: 41706e79097733c47a69fb1a5a1dbfec
+      internalID: -1634877470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_3
+      name: idle_left_coward_3
       rect:
         serializedVersion: 2
         x: 216
         y: 19
         width: 17
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,17 +187,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fffc658486942a47801d5779c054131
-      internalID: 1565198013
+      spriteID: 94f1abdcd34fc9d4f83538ffc73de8ad
+      internalID: -167060921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_4
+      name: idle_left_coward_4
       rect:
         serializedVersion: 2
-        x: 280
+        x: 279
         y: 19
         width: 17
         height: 16
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1ad26bc790dde24a8756dcdd031edda
-      internalID: 778899132
+      spriteID: fbea8aa20d3d3c14faa580472e16a0d3
+      internalID: 445201002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_5
+      name: idle_left_coward_5
       rect:
         serializedVersion: 2
-        x: 344
+        x: 343
         y: 19
         width: 17
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,40 +229,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba7a489a71003b94b88fc339a75b5421
-      internalID: 1694760909
+      spriteID: 3ec07497b472b7b4782d3bf4e672e2a4
+      internalID: -1174422415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_coward_6
+      name: idle_left_coward_6
       rect:
         serializedVersion: 2
         x: 408
         y: 19
         width: 17
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6c1573a4ac60b04e8b6887d32a77f7b
-      internalID: -204558173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_up_coward_7
-      rect:
-        serializedVersion: 2
-        x: 472
-        y: 19
-        width: 17
         height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92c774f613bdd4842a5980c1c78dc385
-      internalID: -1336671230
+      spriteID: 3a65f002eebdb424a85e46437fc3d0a0
+      internalID: -950437404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_left_coward_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 19
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f6d27e8e460a648a01a429c63f0272
+      internalID: 1152996405
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_up_coward_0: 1582932399
-      idle_up_coward_1: 273307468
-      idle_up_coward_2: -243742693
-      idle_up_coward_3: 1565198013
-      idle_up_coward_4: 778899132
-      idle_up_coward_5: 1694760909
-      idle_up_coward_6: -204558173
-      idle_up_coward_7: -1336671230
+      idle_left_coward_0: -1478567983
+      idle_left_coward_1: -34874160
+      idle_left_coward_2: -1634877470
+      idle_left_coward_3: -167060921
+      idle_left_coward_4: 445201002
+      idle_left_coward_5: -1174422415
+      idle_left_coward_6: -950437404
+      idle_left_coward_7: 1152996405
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
