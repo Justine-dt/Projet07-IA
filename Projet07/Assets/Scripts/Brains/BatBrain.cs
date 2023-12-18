@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BatBrain : Brain
 {
-    [SerializeField] float idleBatSpeed = 1.0f;
-    [SerializeField] float chaseBatSpeed = 5.0f;
 
     protected override void Update()
     {
@@ -16,9 +14,11 @@ public class BatBrain : Brain
     {
         base.ChangeState(newState, target);
 
-        if (newState is ChaseState)
-        {
-            //
-        }
+        //if (newState is ChaseState)
+        //{
+        //    Bat[] bats = FindObjectOfType<Bat>
+        //}
+
+        //foreach (Bat)
     }
 }
