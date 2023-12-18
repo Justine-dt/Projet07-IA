@@ -1,24 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
-enum Stats
+public enum Attribute
 {
     HP,
     ATTACK,
+    SPEED
 };
 
 public class EntityStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool IsDead => _stats[Attribute.HP] <= 0;
+    public SerializedDictionary<Attribute, int> Stats => _stats;
+    [SerializeField] private SerializedDictionary<Attribute, int> _stats = new();
+
+    public void TakeDamage(int damage)
     {
-        
+        _stats[Attribute.HP] -= damage;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Kill()
     {
-        
+        _stats[Attribute.HP] = 0;
     }
 }
