@@ -5,19 +5,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
-public class MalingreBrain : MonoBehaviour
+public class MalingreBrain : Brain
 {
-    public GameObject _malingre;
+    [SerializeField] GameObject _malingre;
     [SerializeField] SpriteRenderer renderer;
 
-    public GameObject _player;
-    public GameObject[] obstacles;
+    GameObject _player;
+    GameObject[] obstacles;
     int numberOfObstacles;
 
-    public GameObject nearestObstacle;
+    GameObject nearestObstacle;
 
-    public Vector2 target;
-    public Vector2 playerPosition;
+    Vector2 target;
+    Vector2 playerPosition;
 
     IState currentState;
 

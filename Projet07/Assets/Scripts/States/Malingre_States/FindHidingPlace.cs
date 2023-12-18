@@ -1,9 +1,15 @@
 using UnityEngine;
 
-public abstract class FindHidingPlace : MonoBehaviour
+public class FindHidingPlace : State
 {
-    MalingreBrain brain;
+    /*
+    public override void OnEnter(Brain brain)
+    {
+        base.OnEnter(brain);
+        SearchHidePoint();
+    }
 
+    
     void SearchHidePoint()
     {
         brain._player = GameObject.FindGameObjectWithTag("Player");
@@ -57,8 +63,10 @@ public abstract class FindHidingPlace : MonoBehaviour
         }
     }
 
-    void Update()
+    public override void OnUpdate()
     {
         brain._malingre.transform.position = Vector2.MoveTowards(brain._malingre.transform.position, brain.target, Time.deltaTime * 4);
     }
+    */
+
 }

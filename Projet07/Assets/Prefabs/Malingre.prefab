@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ef4f5ac197fd98d4eab9095d334099bb, type: 3}
+      objectReference: {fileID: 21300000, guid: a42ba825e2bc87744a55b5ba58c418c2, type: 3}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -113,13 +113,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f1a713adabf7c4d962b85be48adc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entityMove: {fileID: 0}
+  _render: {fileID: 0}
+  _isAggressive: 0
+  _canAttackAnybody: 0
+  _additionalTargets: []
+  _isAlwaysChasing: 0
   _malingre: {fileID: 431371076209643469}
   renderer: {fileID: 2279776044610954969}
-  _player: {fileID: 0}
-  obstacles: []
-  nearestObstacle: {fileID: 0}
-  target: {x: 0, y: 0}
-  playerPosition: {x: 0, y: 0}
 --- !u!212 &2279776044610954969 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
