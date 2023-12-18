@@ -15,11 +15,17 @@ public class MalingreBrain : Brain
     int numberOfObstacles;
 
     GameObject nearestObstacle;
+<<<<<<< Updated upstream
+
+    Vector2 target;
+    Vector2 playerPosition;
+=======
+>>>>>>> Stashed changes
 
     Vector2 target;
     Vector2 playerPosition;
 
-    IState currentState;
+    Coroutine _panickRoutine;
 
     void Start()
     {
@@ -34,6 +40,13 @@ public class MalingreBrain : Brain
         {
             SetTarget();
         }
+<<<<<<< Updated upstream
+=======
+        else if (obstacles.Length == 0)
+        {
+            Panick();
+        }
+>>>>>>> Stashed changes
 
         _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
     }
@@ -92,4 +105,10 @@ public class MalingreBrain : Brain
         }
     }
     
+    void Panick()
+    {
+
+    }
+
+
 }
