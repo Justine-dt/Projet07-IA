@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _speed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -346,7 +350,10 @@ MonoBehaviour:
   _entityMove: {fileID: 5297855177853542563}
   _render: {fileID: 0}
   _isAggressive: 0
+  _canAttackAnybody: 0
   _additionalTargets: []
+  _isAlwaysChasing: 0
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _shootAction: {fileID: -2629936366166286353, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
+  _aim: {fileID: 0}
   _entityShoot: {fileID: 3856137402817283973}
