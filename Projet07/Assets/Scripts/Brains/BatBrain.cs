@@ -14,7 +14,7 @@ public class BatBrain : Brain
     {
         base.ChangeState(newState, target);
 
-        if (newState is ChaseState chaseState)
+        if (newState is ChaseState)
         {
             if (!isAnyBatInChaseState)
             {
