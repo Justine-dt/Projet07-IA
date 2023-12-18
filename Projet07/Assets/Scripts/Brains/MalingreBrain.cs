@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -12,41 +13,36 @@ public class MalingreBrain : Brain
 
     GameObject _player;
     GameObject[] obstacles;
+    GameObject nearestObstacle;
     int numberOfObstacles;
 
-    GameObject nearestObstacle;
-<<<<<<< Updated upstream
-
-    Vector2 target;
     Vector2 playerPosition;
-=======
->>>>>>> Stashed changes
-
     Vector2 target;
-    Vector2 playerPosition;
 
-    Coroutine _panickRoutine;
+    bool coroutineHasStarted = false;
 
     void Start()
     {
-        SetTarget();
+
     }
 
     void Update()
     {
         //Recherche si le nombre d'obstacles a baissé | Si oui, refaire la recherche
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        if(obstacles.Length != numberOfObstacles)
+        numberOfObstacles = obstacles.Length;
+
+        if (obstacles.Length != numberOfObstacles && obstacles.Length != 0)
         {
+            Debug.Log("dsgdrh");
             SetTarget();
+            numberOfObstacles = obstacles.Length;
         }
-<<<<<<< Updated upstream
-=======
-        else if (obstacles.Length == 0)
+        else if (obstacles.Length == 0 && coroutineHasStarted == false)
         {
-            Panick();
+            StartCoroutine(Panick());
+            coroutineHasStarted = true;
         }
->>>>>>> Stashed changes
 
         _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
     }
@@ -104,11 +100,16 @@ public class MalingreBrain : Brain
             }
         }
     }
-    
-    void Panick()
+
+    IEnumerator Panick()
     {
+        while (true)
+        {
+            Vector3 randomVector = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
 
+            target = _malingre.transform.position + randomVector;
+
+            yield return new WaitForSeconds(0.25f);
+        }
     }
-
-
 }
