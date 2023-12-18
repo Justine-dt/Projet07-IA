@@ -18,7 +18,7 @@ public abstract class Brain : MonoBehaviour
     public GameObject Target => _target;
     public SpriteRenderer Sprite => _sprite;
 
-    private GameObject _target;
+    protected GameObject _target;
 
     protected State _currentState;
     protected IdleState _idleState = new();
