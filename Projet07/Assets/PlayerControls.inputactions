@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "a433c0a7-5755-4e18-bf8d-60ca47fc747c",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "786545aa-2993-488b-92b7-901acde8c01e",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -24,8 +24,8 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
-                    "type": "Value",
+                    "name": "MousePosition",
+                    "type": "PassThrough",
                     "id": "0974a964-49fa-48a4-a2d9-0043022918eb",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -35,7 +35,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "7ca55e65-d845-40f9-a266-d99c3c2398f2",
                     "path": "2DVector",
                     "interactions": "",
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

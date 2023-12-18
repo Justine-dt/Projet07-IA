@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerBrain
       objectReference: {fileID: 0}
+    - target: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 5861296537064212781}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -299,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26728f2bb5908984fa5e7850be5e6c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _root: {fileID: 3670842596650257467}
+  _root: {fileID: 8793401879111573014, guid: fab71bc80ca71c544b7bca143948fa40, type: 3}
   _bulletPrefab: {fileID: 8026452394137051356, guid: 44afdf487e6f61b408c52922b16392a0, type: 3}
 --- !u!114 &2903297041497680927 stripped
 MonoBehaviour:
@@ -328,6 +332,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed051bdee2d997f468317831a0274663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &5861296537064212781 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+  m_PrefabInstance: {fileID: 3741529558154768572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6815460491635639088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

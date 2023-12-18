@@ -22,7 +22,7 @@ public class EntityShoot : MonoBehaviour
             while (true)
             {
                 // Create a bullet
-                GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+                GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
                 BulletScript bulletScript = bullet.GetComponent<BulletScript>();
                 // Vérifie si le script de la balle est présent
                 if (bulletScript != null)

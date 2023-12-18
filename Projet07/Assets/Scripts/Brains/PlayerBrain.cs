@@ -48,7 +48,7 @@ public class PlayerBrain : Brain
     private void StartShoot(InputAction.CallbackContext obj)
     {
         // Start the shooting coroutine when the shoot action is initiated
-        _shootRoutine = StartCoroutine(Shoot());
+        _shootRoutine = StartCoroutine(Shoot(obj));
     }
 
     private void StopShoot(InputAction.CallbackContext obj)
@@ -60,7 +60,7 @@ public class PlayerBrain : Brain
             _shootRoutine = null;
         }
     }
-    private IEnumerator Shoot()
+    private IEnumerator Shoot(InputAction.CallbackContext obj)
     {
         // Start the shooting coroutine in the EntityShoot component
         _entityShoot.StartShoot();
