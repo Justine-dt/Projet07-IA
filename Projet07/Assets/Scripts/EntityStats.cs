@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public enum Attribute
 {
@@ -12,18 +11,8 @@ public enum Attribute
 public class EntityStats : MonoBehaviour
 {
     public bool IsDead => _stats[Attribute.HP] <= 0;
-    public Dictionary<Attribute, int> Stats => _stats;
-    private Dictionary<Attribute, int> _stats;
-
-    private void Awake()
-    {
-        _stats = new();
-
-        foreach (Attribute stat in Enum.GetValues(typeof(Attribute)))
-        {
-            _stats[stat] = 4;
-        }
-    }
+    public SerializedDictionary<Attribute, int> Stats => _stats;
+    [SerializeField] private SerializedDictionary<Attribute, int> _stats = new();
 
     public void TakeDamage(int damage)
     {
