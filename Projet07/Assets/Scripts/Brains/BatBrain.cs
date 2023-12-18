@@ -30,13 +30,13 @@ public class BatBrain : Brain
         }
     }
 
-    private void ChangeSpriteAnimation(string animationName)
-    {
-        if (batAnimator != null)
-        {
-            batAnimator.Play(animationName);
-        }
-    }
+    //private void ChangeSpriteAnimation(string animationName)
+    //{
+    //    if (batAnimator != null)
+    //    {
+    //        batAnimator.Play(animationName);
+    //    }
+    //}
 
     private void ChasePlayer(GameObject target)
     {
