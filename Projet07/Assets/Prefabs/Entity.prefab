@@ -84,6 +84,8 @@ MonoBehaviour:
       Value: 0
     - Key: 2
       Value: 1
+    - Key: 3
+      Value: 1
 --- !u!1 &3138340797336634337
 GameObject:
   m_ObjectHideFlags: 0
