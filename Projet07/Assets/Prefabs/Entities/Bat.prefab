@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[1].Value
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _stats._serializedList.Array.data[2].Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
@@ -107,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 5253379550563464876, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: hitColorDuration
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: BatBrain
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9079508088356814591, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -227,10 +235,10 @@ MonoBehaviour:
   _entityMove: {fileID: 690232384045467285}
   _entityStats: {fileID: 7519714795114039849}
   _render: {fileID: 2281376098325258713}
-  _isAggressive: 0
+  _isAggressive: 1
   _canAttackAnybody: 0
   _additionalTargets: []
-  _isAlwaysChasing: 0
+  _isAlwaysChasing: 1
 --- !u!4 &2281376098325258713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

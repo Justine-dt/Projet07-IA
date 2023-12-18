@@ -17,6 +17,7 @@ public abstract class Brain : MonoBehaviour
     public Transform Render => _render;
     public GameObject Target => _target;
     public SpriteRenderer Sprite => _sprite;
+    public State CurrentState => _currentState;
 
     protected GameObject _target;
 
@@ -39,7 +40,9 @@ public abstract class Brain : MonoBehaviour
 
     protected void ChangeState(State newState)
     {
+        if (this is PlayerBrain) return;
         if (_currentState != null && _currentState is DeathState) return;
+        
         _currentState?.OnExit();
         _currentState = newState;
         _currentState.OnEnter(this);
@@ -59,7 +62,7 @@ public abstract class Brain : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
-        if (!_isAlwaysChasing && !IsTriggerValid(collision)) return;
+        if (_isAlwaysChasing && !IsTriggerValid(collision)) return;
         ChangeState(_idleState);
     }
 
