@@ -5,9 +5,12 @@ public class BatBrain : Brain
     private static bool isAnyBatInChaseState = false;
     private Animator batAnimator;
 
-    private void Start()
+    protected override void Awake()
     {
         batAnimator = GetComponent<Animator>();
+
+        _target = GameObject.FindWithTag("PlayerBrain");
+        ChangeState(_chaseState);
     }
 
     protected override void ChangeState(State newState, GameObject target)
