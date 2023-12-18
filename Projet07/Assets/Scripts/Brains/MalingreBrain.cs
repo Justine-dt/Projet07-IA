@@ -19,7 +19,8 @@ public class MalingreBrain : Brain
     Vector2 playerPosition;
     Vector2 target;
 
-    bool coroutineHasStarted = false;
+    bool isPanicking = false;
+    bool isShooting = false;
 
     void Start()
     {
@@ -41,11 +42,24 @@ public class MalingreBrain : Brain
             SetTarget();
             numberOfObstacles = obstacles.Length;
         }
-        else if (obstacles.Length == 0 && coroutineHasStarted == false)
+        else if (obstacles.Length == 0 && isPanicking == false)
         {
             StartCoroutine(Panick());
-            coroutineHasStarted = true;
+            isPanicking = true;
         }
+
+        //Si le malingre est caché, on lance la coroutine shoot
+        if(_malingre.transform.position.x == target.x && _malingre.transform.position.y == target.y && isPanicking == false && isShooting == false)
+        {
+            StartCoroutine(Shoot());
+            isShooting = true;
+        }
+        //else
+        //{
+        //    StopCoroutine(Shoot());
+        //    isShooting = false;
+        //}
+
 
         _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
     }
@@ -85,12 +99,10 @@ public class MalingreBrain : Brain
         {
             if (target.x - playerPosition.x > 0)
             {
-                Debug.Log("Right");
                 target.x += 1;
             }
             else
             {
-                Debug.Log("Left");
                 target.x -= 1;
             }
         }
@@ -98,12 +110,10 @@ public class MalingreBrain : Brain
         {
             if (target.y - playerPosition.y > 0)
             {
-                Debug.Log("Up");
                 target.y += 1.4f;
             }
             else
             {
-                Debug.Log("Down");
                 target.y -= 1.4f;
             }
         }
@@ -118,6 +128,16 @@ public class MalingreBrain : Brain
             target = _malingre.transform.position + randomVector;
 
             yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        while (true)
+        {
+            Debug.Log("TIIIIR");
+
+            yield return new WaitForSeconds(1f);
         }
     }
 }
