@@ -5,6 +5,7 @@ public abstract class Brain : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
+    [SerializeField] protected EntityStats _entityStats;
     [SerializeField] protected Transform _render;
     [SerializeField] protected bool _isAggressive;
     [SerializeField] protected bool _canAttackAnybody;
@@ -22,6 +23,7 @@ public abstract class Brain : MonoBehaviour
     protected IdleState _idleState = new();
     protected ChaseState _chaseState = new();
     protected DetonateState _detonateState = new();
+    protected DeathState _deathState = new();
 
     protected virtual void Awake()
     {
@@ -35,6 +37,7 @@ public abstract class Brain : MonoBehaviour
 
     protected void ChangeState(State newState)
     {
+        if (_currentState != null && _currentState is DeathState) return;
         _currentState?.OnExit();
         _currentState = newState;
         _currentState.OnEnter(this);

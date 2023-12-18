@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class DetonateColor : MonoBehaviour
 {
+    public static event Action OnExplode;
+
     [SerializeField] SpriteRenderer _sprite;
 
     [SerializeField] private Color _hitColor = Color.black;
@@ -47,7 +50,11 @@ public class DetonateColor : MonoBehaviour
             yield return new WaitForSeconds(_hitColorDuration);
             _hitColorDuration -= 0.01f;
 
-            if (_hitColorDuration <= 0) break;
+            if (_hitColorDuration <= 0)
+            {
+                OnExplode?.Invoke();
+                break;
+            }
         }
 
         yield break;
