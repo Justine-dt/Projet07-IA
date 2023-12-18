@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[1].Value
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _stats._serializedList.Array.data[2].Value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
@@ -227,7 +231,7 @@ MonoBehaviour:
   _entityMove: {fileID: 690232384045467285}
   _entityStats: {fileID: 7519714795114039849}
   _render: {fileID: 2281376098325258713}
-  _isAggressive: 0
+  _isAggressive: 1
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0

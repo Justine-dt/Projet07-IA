@@ -7,10 +7,11 @@ public class BatBrain : Brain
 
     protected override void Awake()
     {
+        base.Awake();
         batAnimator = GetComponent<Animator>();
 
-        _target = GameObject.FindWithTag("PlayerBrain");
-        ChangeState(_chaseState);
+        //_target = GameObject.FindWithTag("PlayerBrain");
+        //ChangeState(_chaseState);
     }
 
     protected override void ChangeState(State newState, GameObject target)
