@@ -1,14 +1,9 @@
 using System;
 
-public enum State
-{
-    Start,
-    Stop
-}
-public class FortState
+public class FortState : State
 {
     //Stock l'état actuel
-    private State _state;
+    /*private State _state;
 
     public FortState()
     {
@@ -36,5 +31,5 @@ public class FortState
                 Console.WriteLine("État non reconnu.");
                 break;
         }
-    }
+    }*/
 }
