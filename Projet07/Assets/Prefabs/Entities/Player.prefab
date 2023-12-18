@@ -200,6 +200,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _stats._serializedList.Array.data[0].Value
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _stats._serializedList.Array.data[1].Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _stats._serializedList.Array.data[2].Value
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -265,6 +277,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 808719203930792886}
   m_SourcePrefab: {fileID: 100100000, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+--- !u!212 &864745587357596834 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+  m_PrefabInstance: {fileID: 3741529558154768572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1756743726697132893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3138340797336634337, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -358,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5add959b9b2414e479f185187f32bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 864745587357596834}
   _entityMove: {fileID: 5297855177853542563}
   _entityStats: {fileID: 2903297041497680927}
   _render: {fileID: 6897512402742577135}
@@ -368,6 +385,7 @@ MonoBehaviour:
   _isAlwaysChasing: 0
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _shootAction: {fileID: -2629936366166286353, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
+  _aim: {fileID: 0}
   _entityShoot: {fileID: 3856137402817283973}
 --- !u!4 &6897512402742577135 stripped
 Transform:
