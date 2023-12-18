@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class DetonateColor : MonoBehaviour
+public class DetonateAction : MonoBehaviour
 {
     public static event Action OnExplode;
 

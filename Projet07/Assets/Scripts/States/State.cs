@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class State
@@ -6,6 +7,8 @@ public abstract class State
 
     protected Brain _brain;
     protected bool _chasing;
+
+    protected Dictionary<Attribute, int> _stats => _brain.EntityStats.Stats;
 
     public virtual void OnEnter(Brain brain)
     {

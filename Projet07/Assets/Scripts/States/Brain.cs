@@ -13,6 +13,7 @@ public abstract class Brain : MonoBehaviour
     [SerializeField] protected bool _isAlwaysChasing;
 
     public EntityMove EntityMove => _entityMove;
+    public EntityStats EntityStats => _entityStats;
     public Transform Render => _render;
     public GameObject Target => _target;
     public SpriteRenderer Sprite => _sprite;
@@ -33,6 +34,7 @@ public abstract class Brain : MonoBehaviour
     protected virtual void Update()
     {
         _currentState?.OnUpdate();
+        if (_entityStats.IsDead) ChangeState(_deathState);
     }
 
     protected void ChangeState(State newState)
@@ -74,5 +76,10 @@ public abstract class Brain : MonoBehaviour
         }
 
         return targetIsValid;
+    }
+
+    public EntityStats GetTargetStats()
+    {
+        return _target.GetComponentInParent<EntityStats>();
     }
 }
