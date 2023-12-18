@@ -6,6 +6,7 @@ public class PlayerBrain : Brain
 {
     [SerializeField] InputActionReference _moveAction;
     [SerializeField] InputActionReference _shootAction;
+    [SerializeField] InputActionReference _aim;
     [SerializeField] EntityShoot _entityShoot;
 
     Coroutine _move;
