@@ -1,8 +1,10 @@
 using NaughtyAttributes;
+using Pathfinding;
 using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected AIDestinationSetter _destination;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
     [SerializeField] protected EntityStats _entityStats;
@@ -12,7 +14,9 @@ public abstract class Brain : MonoBehaviour
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
     [SerializeField] protected bool _dealDamageOnCollide;
+    [SerializeField] protected Transform _waypoint;
 
+    public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
     public EntityMove EntityMove => _entityMove;
     public EntityStats EntityStats => _entityStats;
@@ -20,6 +24,7 @@ public abstract class Brain : MonoBehaviour
     public GameObject Target => _target;
     public SpriteRenderer Sprite => _sprite;
     public State CurrentState => _currentState;
+    public Transform Waypoint => _waypoint;
 
     protected GameObject _target;
 
