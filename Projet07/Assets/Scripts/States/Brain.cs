@@ -14,7 +14,6 @@ public abstract class Brain : MonoBehaviour
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
     [SerializeField] protected bool _dealDamageOnCollide;
-    [SerializeField] protected Transform _waypoint;
 
     public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
@@ -24,7 +23,6 @@ public abstract class Brain : MonoBehaviour
     public GameObject Target => _target;
     public SpriteRenderer Sprite => _sprite;
     public State CurrentState => _currentState;
-    public Transform Waypoint => _waypoint;
 
     protected GameObject _target;
 
