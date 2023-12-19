@@ -48,18 +48,19 @@ public class MalingreBrain : Brain
             isPanicking = true;
         }
 
+        /*
         //Si le malingre est caché, on lance la coroutine shoot
         if(_malingre.transform.position.x == target.x && _malingre.transform.position.y == target.y && isPanicking == false && isShooting == false)
         {
             StartCoroutine(Shoot());
             isShooting = true;
         }
-        //else
-        //{
-        //    StopCoroutine(Shoot());
-        //    isShooting = false;
-        //}
-
+        else
+        {
+            StopCoroutine(Shoot());
+            isShooting = false;
+        }
+        */
 
         _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
     }
