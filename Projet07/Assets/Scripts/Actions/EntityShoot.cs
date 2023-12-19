@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class EntityShoot : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class EntityShoot : MonoBehaviour
     */
     [SerializeField] private Transform _root;
     [SerializeField] private GameObject _bulletPrefab;
-    private Vector2 _mousePosition;
+    [SerializeField] private EntityStats _entity;
+    private Vector2 _targetPosition;
     private Vector2 _targetDirection;
     private float _shootRate;
 
@@ -21,6 +23,7 @@ public class EntityShoot : MonoBehaviour
     private void Start()
     {
         _root = new GameObject("AllBullets").GetComponent<Transform>();
+        _entity = GetComponentInParent<EntityStats>();
     }
 
     public void StartShoot(float shootRate)
@@ -34,14 +37,34 @@ public class EntityShoot : MonoBehaviour
         StopCoroutine(_shootRoutine);
     }
 
+    private void GetTarget()
+    {
+        EntityStats Player = GameManager.Instance.Player;
+        if (Player != null) 
+        {
+            return;
+        }
+        if(_entity.IsPlayer)
+        {
+            // player donc aim la souris 
+            _targetPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        }
+        else
+        {
+            // ennemy donc aim le player 
+            _targetPosition = Player.gameObject.transform.position;
+        }
+    }
+
     IEnumerator Shoot()
     {
         while (true)
         {
-            // GetTarget ce sur quoi tu souhaite tirer joueur ou cursor = aim
+            // GetTarget qui tu est et ce sur quoi tu souhaite tirer joueur ou cursor = aim
             // TODO: manage if it's a "playerShoot" or a "entityShoot"
-            _mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            _targetDirection = (_mousePosition - (Vector2)transform.position);
+            GetTarget();
+            // pour pas tirer comme dans valo
+            _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
             float angle = Mathf.Atan2(_targetDirection.y, _targetDirection.x);
             transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg);
             // Create a bullet
@@ -49,6 +72,16 @@ public class EntityShoot : MonoBehaviour
             GameObject _bullet  = Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
             BulletScript bulletScript = _bullet.GetComponent<BulletScript>();
             bulletScript.Direction = _targetDirection;
+            if (_entity.IsPlayer)
+            {
+                // empeche collision entre les balles du joueur et lui meme
+                _bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
+            }
+            else
+            {
+                // empeche collision entre les balles de l'ennemi et lui meme
+                _bullet.layer = LayerMask.NameToLayer("EnemyProjectile");
+            }     
             // Attendre avant de tirer à nouveau
             yield return new WaitForSeconds(_shootRate);
         }

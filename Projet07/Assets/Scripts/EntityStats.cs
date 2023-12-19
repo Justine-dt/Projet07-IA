@@ -11,6 +11,8 @@ public enum Attribute
 public class EntityStats : MonoBehaviour
 {
     public bool IsDead => _stats[Attribute.HP] <= 0;
+    [SerializeField] private bool _isPlayer;
+    public bool IsPlayer => _isPlayer;
     public SerializedDictionary<Attribute, int> Stats => _stats;
     [SerializeField] private SerializedDictionary<Attribute, int> _stats = new();
 

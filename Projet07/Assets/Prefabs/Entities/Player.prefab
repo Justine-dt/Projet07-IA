@@ -162,11 +162,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 16.43
       objectReference: {fileID: 0}
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -201,6 +201,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: _isPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
       value: 30
       objectReference: {fileID: 0}
@@ -211,6 +215,14 @@ PrefabInstance:
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[2].Value
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341898942853211783, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341898942853211783, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.42
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
@@ -323,10 +335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26728f2bb5908984fa5e7850be5e6c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _root: {fileID: 8793401879111573014, guid: ed2ea01238231ec4a89f6feaa9d2f839, type: 3}
+  _root: {fileID: 0}
   _bulletPrefab: {fileID: 8026452394137051356, guid: 44afdf487e6f61b408c52922b16392a0, type: 3}
-  _mousePosition: {x: 0, y: 0}
-  _movementVelocity: 3
+  _entity: {fileID: 0}
 --- !u!114 &2903297041497680927 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -418,7 +429,7 @@ MonoBehaviour:
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _shootAction: {fileID: -2629936366166286353, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _aim: {fileID: -2194216533546928330, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
-  _shootRate: 0
+  _shootRate: 5
 --- !u!4 &6897512402742577135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
