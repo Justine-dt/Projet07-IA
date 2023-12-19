@@ -1,71 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public enum NodeState
+namespace BehaviorTree
 {
-    RUNNING,
-    SUCCESS,
-    FAILURE
-}
-
-public class Node
-{
-    public Node Parent => _parent;
-
-    protected NodeState _currentState;
-    protected List<Node> _children = new();
-
-    private Node _parent;
-    private Dictionary<string, object> _data = new();
-
-    public Node()
+    public enum NodeState
     {
-        _parent = null;
+        RUNNING,
+        SUCCESS,
+        FAILURE
     }
 
-    public Node(List<Node> children)
+    public class Node
     {
-        foreach (var child in children) Attach(child);
-    }
+        protected NodeState state;
 
-    private void Attach(Node node)
-    {
-        node._parent = this;
-        _children.Add(node);
-    }
+        public Node parent;
+        protected List<Node> children;
 
-    public void SetData(string key, object value)
-    {
-        _data[key] = value;
-    }
+        private Dictionary<string, object>  _dataContext = new Dictionary<string, object>();
 
-    public object GetData(string key)
-    {
-        if (_data.TryGetValue(key, out object data)) return data;
-        if (_parent != null) data = _parent.GetData(key);
-
-        return data;
-    }
-
-    public bool ClearData(string key)
-    {
-        bool cleared = false;
-
-        if (_data.ContainsKey(key))
+        public Node()
         {
-            _data.Remove(key);
-            return true;
+            parent = null;
         }
 
-        if (_parent != null)
+        public Node(List<Node> children)
         {
-            cleared = _parent.ClearData(key);
+            foreach(Node child in children)
+            {
+                _Attach(child);
+            }
         }
 
-        return cleared;
-    }
+        private void _Attach(Node node)
+        {
+            node.parent = this;
+            children.Add(node);
+        }
 
-    public virtual NodeState Evaluate() => NodeState.FAILURE;
+        public virtual NodeState Evaluate() => NodeState.FAILURE;
+
+        public void SetData(string key, object value)
+        {
+            _dataContext[key] = value;
+        }
+
+        public object GetData(string key)
+        {
+            object val = null;
+            if (_dataContext.TryGetValue(key, out val))
+                return val;
+
+            Node node = parent;
+            if (node != null)
+                val = node.GetData(key);
+            return val;
+        }
+
+        public bool ClearData(string key)
+        {
+            bool cleared = false;
+            if (_dataContext.ContainsKey(key))
+            {
+                _dataContext.Remove(key);
+                return true;
+            }
+
+            Node node = parent;
+            if (node != null)
+                cleared = node.ClearData(key);
+            return cleared;
+        }
+
+    }
 }

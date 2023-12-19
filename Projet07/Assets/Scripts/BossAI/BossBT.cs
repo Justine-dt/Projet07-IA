@@ -23,9 +23,7 @@ public class GuardBT : BehaviorTree.Tree
 
         Node root = new BossMovement(_bossTransform, _bossRenderer);
 
-
         return root;
-        
     }
     
 }
