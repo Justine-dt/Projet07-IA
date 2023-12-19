@@ -19,7 +19,15 @@ public abstract class State
         _cooldown = Time.time + _stats[Attribute.ATKSPEED];
     }
 
-    public virtual void OnCollide() { }
+    public virtual void OnCollide(Transform source)
+    {
+        if (source != _brain.Render) return;
+    }
+
+    public virtual void OnStopCollide(Transform source)
+    {
+        if (source != _brain.Render) return;
+    }
 
     public virtual void OnHurt() { }
 
