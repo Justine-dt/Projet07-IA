@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -5,39 +6,85 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
-public class MalingreBrain : MonoBehaviour
+public class MalingreBrain : Brain
 {
-    public GameObject _malingre;
+    [SerializeField] GameObject _malingre;
     [SerializeField] SpriteRenderer renderer;
 
-    public GameObject _player;
-    public GameObject[] obstacles;
-    public GameObject nearestObstacle;
+    GameObject _player;
+    GameObject[] obstacles;
+    GameObject nearestObstacle;
+    int numberOfObstacles;
 
-    public Vector2 target;
-    public Vector2 playerPosition;
+    Vector2 playerPosition;
+    Vector2 target;
 
-    IState currentState;
+    bool isPanicking = false;
+    bool isShooting = false;
 
     void Start()
     {
-        #region Recherche d'obstacles et calcul de target,,,,
+
+    }
+
+    void Update()
+    {
+        //Recherche si le nombre d'obstacles a baissé | Si oui, refaire la recherche
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        if(obstacles.Length > 0)
+        {
+            SetTarget();
+            numberOfObstacles = obstacles.Length;
+        }
+        else if (obstacles.Length != numberOfObstacles)
+        {
+            SetTarget();
+            numberOfObstacles = obstacles.Length;
+        }
+        else if (obstacles.Length == 0 && isPanicking == false)
+        {
+            StartCoroutine(Panick());
+            isPanicking = true;
+        }
+
+        /*
+        //Si le malingre est caché, on lance la coroutine shoot
+        if(_malingre.transform.position.x == target.x && _malingre.transform.position.y == target.y && isPanicking == false && isShooting == false)
+        {
+            StartCoroutine(Shoot());
+            isShooting = true;
+        }
+        else
+        {
+            StopCoroutine(Shoot());
+            isShooting = false;
+        }
+        */
+
+        _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
+    }
+
+    void SetTarget()
+    {
         _player = GameObject.FindGameObjectWithTag("Player");
 
         //Find every obstacles
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        float baseMagnitude = 100.0f;
+        numberOfObstacles = obstacles.Length;
 
         //Find the nearest obstacle
         if (obstacles.Length > 0)
         {
-            foreach (GameObject obstacle in obstacles)
+            nearestObstacle = obstacles[0];
+            for (int i = 0; i < obstacles.Length; i++)
             {
+                GameObject currentObstacle = obstacles[i];
+
                 //If the current obstacle is nearer than the previous one, update the variable nearestObstacle
-                if (obstacle.transform.position.magnitude < baseMagnitude)
+                if ((_malingre.transform.position - currentObstacle.transform.position).magnitude < (_malingre.transform.position - nearestObstacle.transform.position).magnitude)
                 {
-                    nearestObstacle = obstacle;
-                    baseMagnitude = obstacle.transform.position.magnitude;
+                    nearestObstacle = currentObstacle;
                 }
             }
         }
@@ -49,9 +96,9 @@ public class MalingreBrain : MonoBehaviour
         //Check position of player to go to the best side of the nearest obstacle to hide
         playerPosition = _player.transform.position - _malingre.transform.position;
 
-        if (Mathf.Abs(target.x - _player.transform.position.x) > Mathf.Abs(target.y - _player.transform.position.y))
+        if (Mathf.Abs(target.x - playerPosition.x) > Mathf.Abs(target.y - playerPosition.y))
         {
-            if (target.x - _player.transform.position.x > 0)
+            if (target.x - playerPosition.x > 0)
             {
                 target.x += 1;
             }
@@ -62,7 +109,7 @@ public class MalingreBrain : MonoBehaviour
         }
         else
         {
-            if (target.y - _player.transform.position.y > 0)
+            if (target.y - playerPosition.y > 0)
             {
                 target.y += 1.4f;
             }
@@ -71,14 +118,27 @@ public class MalingreBrain : MonoBehaviour
                 target.y -= 1.4f;
             }
         }
-        #endregion
-
     }
 
-    void Update()
+    IEnumerator Panick()
     {
-        _malingre.transform.position = Vector2.MoveTowards(_malingre.transform.position, target, Time.deltaTime * 4);
+        while (true)
+        {
+            Vector3 randomVector = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+
+            target = _malingre.transform.position + randomVector;
+
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 
-    
+    IEnumerator Shoot()
+    {
+        while (true)
+        {
+            Debug.Log("TIIIIR");
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
 }

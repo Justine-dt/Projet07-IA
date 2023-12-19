@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Projet07/Assets/Scripts/BossAI.meta
+guid: 5fd0d239f7da8d94796472bcece2d593
+========
 guid: bdfbb6ce132921146a27003b20c4de6c
+>>>>>>>> main:Projet07/Assets/Sprites/Animations/Hunger.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

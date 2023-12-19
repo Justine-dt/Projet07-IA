@@ -1,34 +1,42 @@
+using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Sequence : Node
+
+namespace BehaviorTree
 {
-    //All children must succeed evaluation
-    public Sequence() : base() { }
-    public Sequence(List<Node> children) : base(children) { }
-
-    public override NodeState Evaluate()
+    public class Sequence : Node
     {
-        bool anyChildIsRunning = false;
+        public Sequence() : base() { }
+        public Sequence(List<Node> children) : base(children) { }
 
-        foreach (Node node in _children)
+        public override NodeState Evaluate()
         {
-            switch (node.Evaluate())
-            {
-                case NodeState.FAILURE:
-                    _currentState = NodeState.FAILURE;
-                    return _currentState;
-                case NodeState.SUCCESS:
-                    continue;
-                case NodeState.RUNNING:
-                    anyChildIsRunning = true;
-                    continue;
-                default:
-                    _currentState = NodeState.SUCCESS;
-                    return _currentState;
-            }
-        }
+            bool anyChildIsRunning = false;
 
-        _currentState = anyChildIsRunning ? NodeState.RUNNING : NodeState.SUCCESS;
-        return _currentState;
+            foreach (Node node in children)
+            {
+                switch (node.Evaluate())
+                {
+                    case NodeState.FAILURE:
+                        state = NodeState.FAILURE;
+                        return state;
+                    case NodeState.SUCCESS:
+                        continue;
+                    case NodeState.RUNNING:
+                        anyChildIsRunning = true;
+                        continue;
+                    default:
+                        state = NodeState.SUCCESS;
+                        return state;
+                }
+            }
+
+            state = anyChildIsRunning ? NodeState.RUNNING : NodeState.SUCCESS;
+            return state;
+
+        }
     }
 }
+

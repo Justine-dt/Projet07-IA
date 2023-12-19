@@ -1,18 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
-public abstract class Tree : MonoBehaviour
+namespace BehaviorTree
 {
-    private Node _root = null;
-
-    private void Awake()
+    public abstract class Tree : MonoBehaviour
     {
-        SetupTree();
-    }
+        private Node _root = null;
 
-    private void Update()
-    {
-        _root?.Evaluate();
-    }
+        protected void Start()
+        {
+            _root = SetupTree();
+        }
 
-    protected abstract Node SetupTree();
+        private void Update()
+        {
+            if(_root != null){
+                _root.Evaluate();
+            }
+        }
+
+        protected abstract Node SetupTree();
+    }
 }
+
+

@@ -1,31 +1,41 @@
+using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Selector : Node
+
+namespace BehaviorTree
 {
-    //At least 1 child must succeed evaluation
-    public Selector() : base() { }
-    public Selector(List<Node> children) : base(children) { }
-
-    public override NodeState Evaluate()
+    public class Selector : Node
     {
-        foreach (Node node in _children)
-        {
-            switch (node.Evaluate())
-            {
-                case NodeState.FAILURE:
-                    continue;
-                case NodeState.RUNNING:
-                    _currentState = NodeState.RUNNING;
-                    return _currentState;
-                case NodeState.SUCCESS:
-                    _currentState = NodeState.SUCCESS;
-                    return _currentState;
-                default:
-                    continue;
-            }
-        }
+        public Selector() : base() { }
+        public Selector(List<Node> children) : base(children) { }
 
-        _currentState = NodeState.FAILURE;
-        return _currentState;
+        public override NodeState Evaluate()
+        {
+            bool anyChildIsRunning = false;
+
+            foreach (Node node in children)
+            {
+                switch (node.Evaluate())
+                {
+                    case NodeState.FAILURE:
+                        continue;
+                    case NodeState.SUCCESS:
+                        state = NodeState.SUCCESS;
+                        return state;
+                    case NodeState.RUNNING:
+                        state = NodeState.RUNNING;
+                        return state;
+                    default:
+                        continue;
+                }
+            }
+
+            state = NodeState.FAILURE;
+            return state;
+
+        }
     }
 }
+
