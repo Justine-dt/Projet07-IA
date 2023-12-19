@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30fbcb8b0291a747be94f93d4fa758b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destination: {fileID: 302917495157239956}
   _sprite: {fileID: 5481373338580671124}
   _entityMove: {fileID: 0}
   _entityStats: {fileID: 7519714795114039849}
@@ -255,6 +256,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 1
   _dealDamageOnCollide: 1
+  _waypoint: {fileID: 0}
 --- !u!4 &2281376098325258713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
