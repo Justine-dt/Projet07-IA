@@ -1,15 +1,18 @@
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
+using System;
 
 public enum Attribute
 {
     HP,
     ATTACK,
-    SPEED
+    SPEED,
+    ATKSPEED
 };
 
 public class EntityStats : MonoBehaviour
 {
+    public static event Action OnHurt;
     public bool IsDead => _stats[Attribute.HP] <= 0;
     [SerializeField] private bool _isPlayer;
     public bool IsPlayer => _isPlayer;
@@ -19,6 +22,7 @@ public class EntityStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _stats[Attribute.HP] -= damage;
+        OnHurt?.Invoke();
     }
 
     public void Kill()

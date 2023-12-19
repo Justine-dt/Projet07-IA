@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Obstacle
   - PlayerBrain
+  - BatBrain
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
   - EnemyWalls

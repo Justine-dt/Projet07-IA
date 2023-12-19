@@ -1,53 +1,35 @@
+using System;
 using UnityEngine;
 
 public class BatBrain : Brain
 {
-    private static bool isAnyBatInChaseState = false;
-    private Animator batAnimator;
+    private static event Action<GameObject> OnFirstChase;
+    private static bool isAnyBatInChaseState;
 
     protected override void Awake()
     {
-        batAnimator = GetComponent<Animator>();
+        base.Awake();
+        OnFirstChase += ChasePlayer;
+    }
 
-        _target = GameObject.FindWithTag("PlayerBrain");
-        ChangeState(_chaseState);
+    private void OnDestroy()
+    {
+        OnFirstChase -= ChasePlayer;
     }
 
     protected override void ChangeState(State newState, GameObject target)
     {
         base.ChangeState(newState, target);
 
-        if (newState is ChaseState)
+        if (newState is ChaseState && !isAnyBatInChaseState)
         {
-            if (!isAnyBatInChaseState)
-            {
-                isAnyBatInChaseState = true;
-                ChangeSpriteAnimation("Bat_Angry_Idle_Move");
-                ChangeAllBatBrainsState(new ChaseState(), target);
-            }
-        }
-        else
-        {
-            isAnyBatInChaseState = false;
-            ChangeSpriteAnimation("Bat_Idle_Move");
+            isAnyBatInChaseState = true;
+            OnFirstChase?.Invoke(target);
         }
     }
 
-    private void ChangeAllBatBrainsState(State state, GameObject target)
+    private void ChasePlayer(GameObject target)
     {
-        BatBrain[] allBatBrains = FindObjectsOfType<BatBrain>();
-
-        foreach (BatBrain batBrain in allBatBrains)
-        {
-            batBrain.ChangeState(state, target);
-        }
-    }
-
-    private void ChangeSpriteAnimation(string animationName)
-    {
-        if (batAnimator != null)
-        {
-            batAnimator.Play(animationName);
-        }
+        if (CurrentState is not ChaseState) ChangeState(_chaseState, target);
     }
 }

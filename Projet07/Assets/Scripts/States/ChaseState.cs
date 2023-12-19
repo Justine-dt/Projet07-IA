@@ -4,27 +4,42 @@ public class ChaseState : State
 {
     public override void OnEnter(Brain brain)
     {
+        Collision.OnCollide += OnCollide;
+        Collision.OnStopCollide += OnStopCollide;
+
         base.OnEnter(brain);
         _chasing = true;
+        _brain.Destination.target = _brain.Target.transform;
+    }
+
+    public override void OnExit()
+    {
+        Collision.OnCollide -= OnCollide;
+        Collision.OnStopCollide -= OnStopCollide;
+
+        base.OnExit();
     }
 
     public override void OnUpdate()
     {
-        var pos = _brain.Render.transform.position;
-        var targetPos = _brain.Target.transform.position;
-
-        if (Vector2.Distance(pos, targetPos) > 1f)
-        {
-            _brain.EntityMove._direction = targetPos - pos;
-            return;
-        }
-
-        OnCollide();
+        if (!_chasing && _brain.DealDamageOnCollide && WaitFor(_stats[Attribute.ATKSPEED])) Attack();
     }
 
-    public override void OnCollide()
+    public override void OnCollide(Transform source)
     {
-        base.OnCollide();
+        base.OnCollide(source);
         _chasing = false;
+    }
+
+    public override void OnStopCollide(Transform source)
+    {
+        base.OnStopCollide(source);
+        _chasing = true;
+    }
+
+    private void Attack()
+    {
+        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK]);
+        ResetCooldown();
     }
 }
