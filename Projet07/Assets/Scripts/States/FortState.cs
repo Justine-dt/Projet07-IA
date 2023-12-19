@@ -2,18 +2,19 @@ using System;
 
 public class FortState : State
 {
-    //Stock l'état actuel
-    /*private State _state;
+    /*//Stock l'état actuel
+    private State _state;
 
     public FortState()
     {
-        _state = State.Stop;
+
     }
 
     //Changement d'état
     public void ChangeState(State newState)
     {
         _state = newState;
+        _state.OnCollide();
     }
 
     //Effectuer une action en fonction de l'état actuel
@@ -21,7 +22,7 @@ public class FortState : State
     {
         switch (_state)
         {
-            case State.Start:
+            case State.:
                 Console.WriteLine("En cours d'exécution...");
                 break;
             case State.Stop:
@@ -32,4 +33,5 @@ public class FortState : State
                 break;
         }
     }*/
+
 }
