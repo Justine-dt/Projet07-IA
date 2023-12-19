@@ -10,16 +10,22 @@ public class GuardBT : BehaviorTree.Tree
 
     public static bool hasPlayerEnteredRoom = false;
 
+    
     protected override Node SetupTree()
     {
+        /*
         Node root = new Sequence(new List<Node>
         {
             new BossMovement(_bossTransform, _bossRenderer),
             new BossSpawnAllies(_bossTransform)
         });
-            
-        
-        return root;
-    }
+        */
 
+        Node root = new BossMovement(_bossTransform, _bossRenderer);
+
+
+        return root;
+        
+    }
+    
 }
