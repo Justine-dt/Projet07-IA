@@ -60,9 +60,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Creeper
       objectReference: {fileID: 0}
+    - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0027261376
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -622630563, guid: b9834288804de8047af755c48da18061, type: 3}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Color.g
@@ -70,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Color.r
-      value: 0.19127488
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91,6 +103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2786773593075898080}
+    - targetCorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2515397132340954746}
   m_SourcePrefab: {fileID: 100100000, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
 --- !u!212 &885442746188714021 stripped
 SpriteRenderer:
@@ -222,6 +237,27 @@ MonoBehaviour:
   _sprite: {fileID: 885442746188714021}
   _hitColor: {r: 0, g: 0, b: 0, a: 1}
   _hitColorDuration: 0.2
+--- !u!95 &2515397132340954746
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579157323219006496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2241211416903815808, guid: ed693410441a7864e8cad58e56f92e4c, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6835595405962096567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
