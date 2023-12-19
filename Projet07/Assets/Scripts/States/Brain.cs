@@ -90,4 +90,9 @@ public abstract class Brain : MonoBehaviour
     {
         return _target.GetComponentInParent<EntityStats>();
     }
+
+    public void ClearDestinationTarget()
+    {
+        _destination.target = null;
+    }
 }

@@ -34830,7 +34830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591552916851259697, guid: 2af1941c426b59f49977ceb56813b50d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3654947211256094908, guid: 2af1941c426b59f49977ceb56813b50d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35071,6 +35071,10 @@ PrefabInstance:
     - target: {fileID: 6218958215011660672, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218958215011660672, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8277759471239490061, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
       propertyPath: m_LocalPosition.x

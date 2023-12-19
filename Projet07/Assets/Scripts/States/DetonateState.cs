@@ -8,16 +8,19 @@ public class DetonateState : State
 
     public override void OnEnter(Brain brain)
     {
+        DetonateAction.OnExplode += Detonate;
+
         base.OnEnter(brain);
         OnDetonate?.Invoke(_brain.Render);
-        DetonateAction.OnExplode += Detonate;
+
+        _brain.ClearDestinationTarget();
     }
 
     public override void OnExit()
     {
+        DetonateAction.OnExplode -= Detonate;
         base.OnExit();
         OnStopDetonate?.Invoke(_brain.Render);
-        DetonateAction.OnExplode -= Detonate;
     }
 
     public void Detonate()
