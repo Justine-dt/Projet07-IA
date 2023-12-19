@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityShoot : MonoBehaviour
@@ -12,18 +11,22 @@ public class EntityShoot : MonoBehaviour
     */
     [SerializeField] Transform _root;
     [SerializeField] GameObject _bulletPrefab;
+    [SerializeField] GameObject _bulletDirection;
+    public Vector2 _mousePosition;
+    private float duration = 2.0f;
 
     Coroutine _shootRoutine;
-    public void StartShoot()
+    public void UpdateShoot()
     {
         _shootRoutine = StartCoroutine(ShootRoutine());
         IEnumerator ShootRoutine()
         {
             while (true)
             {
+                _mousePosition = Camera.main.ScreenToWorldPoint(_mousePosition);
                 // Create a bullet
-                GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
-                BulletScript bulletScript = bullet.GetComponent<BulletScript>();
+                Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
+                BulletScript bulletScript = _bulletPrefab.GetComponent<BulletScript>();
                 // Vérifie si le script de la balle est présent
                 if (bulletScript != null)
                 {

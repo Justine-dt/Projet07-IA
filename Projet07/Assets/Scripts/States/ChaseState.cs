@@ -15,7 +15,7 @@ public class ChaseState : State
 
         if (Vector2.Distance(pos, targetPos) > 1f)
         {
-            _brain.EntityMove.Move(targetPos - pos);
+            _brain.EntityMove._direction = targetPos - pos;
             return;
         }
 

@@ -20,7 +20,7 @@ public class IdleState : State
 
         if (Vector2.Distance(_brain.Render.position, _randomDestination) > 1f)
         {
-            _brain.EntityMove.Move(_randomDestination - (Vector2)_brain.Render.position);
+            _brain.EntityMove._direction = _randomDestination - (Vector2)_brain.Render.position;
         }
     }
 

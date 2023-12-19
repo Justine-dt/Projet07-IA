@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26728f2bb5908984fa5e7850be5e6c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _root: {fileID: 8793401879111573014, guid: fab71bc80ca71c544b7bca143948fa40, type: 3}
+  _root: {fileID: 8793401879111573014, guid: ed2ea01238231ec4a89f6feaa9d2f839, type: 3}
   _bulletPrefab: {fileID: 8026452394137051356, guid: 44afdf487e6f61b408c52922b16392a0, type: 3}
 --- !u!114 &2903297041497680927 stripped
 MonoBehaviour:
@@ -386,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 864745587357596834}
   _entityMove: {fileID: 5297855177853542563}
+  _entityShoot: {fileID: 3856137402817283973}
   _entityStats: {fileID: 2903297041497680927}
   _render: {fileID: 6897512402742577135}
   _isAggressive: 0
@@ -394,8 +395,7 @@ MonoBehaviour:
   _isAlwaysChasing: 0
   _moveAction: {fileID: -5602208491939843811, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
   _shootAction: {fileID: -2629936366166286353, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
-  _aim: {fileID: 0}
-  _entityShoot: {fileID: 3856137402817283973}
+  _aim: {fileID: -2194216533546928330, guid: 048a233880205c54dbeb10cc7ab77e19, type: 3}
 --- !u!4 &6897512402742577135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
