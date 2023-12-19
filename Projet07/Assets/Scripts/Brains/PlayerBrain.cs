@@ -8,6 +8,11 @@ public class PlayerBrain : Brain
     [SerializeField] InputActionReference _shootAction;
     [SerializeField] InputActionReference _aim;
 
+    [SerializeField] private float _shootRate;
+    public float ShootRate => 1 / _shootRate;
+
+    private bool _canShoot = true;
+
     Coroutine _move;
     Coroutine _shoot;
 
@@ -41,7 +46,9 @@ public class PlayerBrain : Brain
     {
         // Stop the movement coroutine when the move action is canceled (button released)
         StopCoroutine(_move);
+        // Reset direction
         _entityMove._direction = Vector2.zero;
+        // Send reset to the function
         _entityMove.UpdateMove();
     }
 
@@ -53,20 +60,18 @@ public class PlayerBrain : Brain
 
     private void StopShoot(InputAction.CallbackContext obj)
     {
-        // Stop the shooting coroutine when the shoot action is canceled (button released)
-        if (_shoot != null)
-        {
-            StopCoroutine(_shoot);
-            _shoot = null;
-        }
+        StopCoroutine(_shoot);
+        // Reset mousePosition
+        _entityShoot._mousePosition = Vector2.zero;
+        // Send reset to the function
+        _entityShoot.UpdateShoot(ShootRate);
     }
     private IEnumerator Shoot(InputAction.CallbackContext obj)
     {
+        _canShoot = false;
         // Start the shooting coroutine in the EntityShoot component
         _entityShoot._mousePosition = (obj.ReadValue<Vector2>());
-        _entityShoot.UpdateShoot();
-        // Wait until the shoot action is canceled (button released)
-        /*yield return new WaitUntil(() => _shootAction.action.phase == InputActionPhase.Canceled);*/
+        _entityShoot.UpdateShoot(ShootRate);
         yield return null;
         // Stop the shooting coroutine in the EntityShoot component
         _entityShoot.StopShoot();

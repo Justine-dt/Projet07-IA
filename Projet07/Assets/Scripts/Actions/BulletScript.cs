@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] float _bulletSpeed = 5f;
+    [SerializeField] private float _bulletSpeed = 5f;
+    [SerializeField] private Vector3 _direction;
 
-    Vector3 _direction;
-
-    public void SetDirection(Vector3 direction)
+    IEnumerable DestroyBulletAfterTime()
     {
-        // Normalize la direction pour s'assurer que la vitesse est constante
-        _direction = direction.normalized;
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+
+    private void MoveBullet()
+    {
+        // Déplace la balle dans la direction spécifiée à une vitesse constante
+        transform.Translate(Vector3.up * _bulletSpeed * Time.deltaTime, Space.World);
     }
 
     void Update()
@@ -19,13 +24,7 @@ public class BulletScript : MonoBehaviour
         MoveBullet();
     }
 
-    void MoveBullet()
-    {
-        // Déplace la balle dans la direction spécifiée à une vitesse constante
-        transform.Translate(_direction * _bulletSpeed * Time.deltaTime, Space.World);
-    }
-
-    /*void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Gère la logique de collision ici si nécessaire
         // Par exemple, détruire la balle lorsqu'elle entre en collision avec un ennemi
@@ -33,6 +32,6 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }*/
+    }
 }
 

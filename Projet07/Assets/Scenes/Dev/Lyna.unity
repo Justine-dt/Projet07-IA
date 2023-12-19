@@ -22337,6 +22337,10 @@ PrefabInstance:
       propertyPath: _root
       value: 
       objectReference: {fileID: 8793401879111573014, guid: ed2ea01238231ec4a89f6feaa9d2f839, type: 3}
+    - target: {fileID: 3856137402817283973, guid: d537d2d38efe88f42896d304268af784, type: 3}
+      propertyPath: _bulletDirection
+      value: 
+      objectReference: {fileID: 5314356478209295823, guid: 44afdf487e6f61b408c52922b16392a0, type: 3}
     - target: {fileID: 4832525856091635020, guid: d537d2d38efe88f42896d304268af784, type: 3}
       propertyPath: m_IsActive
       value: 0
