@@ -15,8 +15,8 @@ public class TwinSpawner : MonoBehaviour
         _twinA = Instantiate(_twinAPrefab);
         _twinB = Instantiate(_twinBPrefab);
 
-        _twinABrain = _twinA.GetComponent<TwinBrain>();
-        _twinBBrain = _twinB.GetComponent<TwinBrain>();
+        _twinABrain = _twinA.GetComponentInChildren<TwinBrain>();
+        _twinBBrain = _twinB.GetComponentInChildren<TwinBrain>();
 
         _twinABrain.SetTwin(_twinBBrain);
         _twinBBrain.SetTwin(_twinABrain);

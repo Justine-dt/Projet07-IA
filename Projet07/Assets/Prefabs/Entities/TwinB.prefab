@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwinB
       objectReference: {fileID: 0}
+    - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.89919114
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -99,7 +111,7 @@ MonoBehaviour:
   _entityMove: {fileID: 0}
   _entityStats: {fileID: 6965002432813567746}
   _render: {fileID: 1682903107856393458}
-  _isAggressive: 0
+  _isAggressive: 1
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0

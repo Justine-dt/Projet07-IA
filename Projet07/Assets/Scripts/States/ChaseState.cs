@@ -40,6 +40,7 @@ public class ChaseState : State
     private void Attack()
     {
         _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK]);
+        _brain.EntityStats.TakeDamage(1); //For testing only
         ResetCooldown();
     }
 }

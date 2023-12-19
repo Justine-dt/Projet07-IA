@@ -8,7 +8,6 @@ public class ProtectiveState : IdleState
     public override void OnHurt()
     {
         base.OnHurt();
-
         OnAllyHurt?.Invoke(_brain.transform);
     }
 }
