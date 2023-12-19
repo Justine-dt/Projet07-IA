@@ -4,13 +4,11 @@ using UnityEngine;
 public class BatBrain : Brain
 {
     private static event Action<GameObject> OnFirstChase;
-    private static bool isAnyBatInChaseState = false;
-    private Animator batAnimator;
+    private static bool isAnyBatInChaseState;
 
     protected override void Awake()
     {
         base.Awake();
-        batAnimator = GetComponent<Animator>();
         OnFirstChase += ChasePlayer;
     }
 
@@ -30,17 +28,11 @@ public class BatBrain : Brain
         }
     }
 
-    //private void ChangeSpriteAnimation(string animationName)
-    //{
-    //    if (batAnimator != null)
-    //    {
-    //        batAnimator.Play(animationName);
-    //    }
-    //}
-
     private void ChasePlayer(GameObject target)
     {
-        if (CurrentState is ChaseState) return;
-        ChangeState(_chaseState, target);
+        if (!(CurrentState is ChaseState))
+        {
+            ChangeState(_chaseState, target);
+        }
     }
 }

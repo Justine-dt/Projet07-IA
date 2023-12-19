@@ -31,14 +31,16 @@ public class IdleState : State
         Vector2 destination = new(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
         _brain.Destination.target.Translate(destination);
 
-        if (destination.x < 0)
-        {
-            _brain.Sprite.flipX = true;
-        }
-        else if (_brain.Sprite.flipX = true && destination.x > 0)
-        {
-            _brain.Sprite.flipX = false;
-        }
+        //if (destination.x < 0)
+        //{
+        //    _brain.Sprite.flipX = true;
+        //}
+        //else if (_brain.Sprite.flipX = true && destination.x > 0)
+        //{
+        //    _brain.Sprite.flipX = false;
+        //}
+
+        _brain.Sprite.flipX = destination.x < 0;
 
         ResetCooldown();
     }
