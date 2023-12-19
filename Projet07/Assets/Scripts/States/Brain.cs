@@ -31,6 +31,7 @@ public abstract class Brain : MonoBehaviour
     protected ChaseState _chaseState = new();
     protected DetonateState _detonateState = new();
     protected DeathState _deathState = new();
+    protected ProtectiveState _protectiveState = new();
 
     protected virtual void Awake()
     {
