@@ -26,9 +26,9 @@ public class ChaseState : State
             return;
         }
 
-        Debug.Log($"bat pos : {pos}");
-        Debug.Log($"player pos : {targetPos}");
-        Debug.Log(Vector2.Distance(pos, targetPos));
+        //Debug.Log($"bat pos : {pos}");
+        //Debug.Log($"player pos : {targetPos}");
+        //Debug.Log(Vector2.Distance(pos, targetPos));
 
         OnCollide();
     }

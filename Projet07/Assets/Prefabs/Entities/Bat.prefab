@@ -235,10 +235,11 @@ MonoBehaviour:
   _entityMove: {fileID: 690232384045467285}
   _entityStats: {fileID: 7519714795114039849}
   _render: {fileID: 2281376098325258713}
-  _isAggressive: 1
+  _isAggressive: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 1
+  _dealDamageOnCollide: 1
 --- !u!4 &2281376098325258713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
