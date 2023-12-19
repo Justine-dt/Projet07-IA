@@ -3,13 +3,21 @@ using UnityEngine;
 public class IdleState : State
 {
     private float _random;
+    private GameObject _waypoint;
 
     public override void OnEnter(Brain brain)
     {
         base.OnEnter(brain);
         _random = -1;
-        _brain.Destination.target = new GameObject("Waypoint").GetComponent<Transform>();
+        _waypoint = new GameObject("Waypoint");
+        _brain.Destination.target = _waypoint.GetComponent<Transform>();
         _brain.Destination.target.position = _brain.Render.position;
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        Object.Destroy(_waypoint);
     }
 
     public override void OnUpdate()
