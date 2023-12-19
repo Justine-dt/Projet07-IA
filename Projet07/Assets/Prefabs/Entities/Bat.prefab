@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: hitColorDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_TagString
       value: BatBrain
@@ -131,6 +135,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9079508088356814591, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
     - {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+    - {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -153,17 +158,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8640343955612991456}
   m_SourcePrefab: {fileID: 100100000, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
---- !u!114 &690232384045467285 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
-  m_PrefabInstance: {fileID: 8357947304138544778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed051bdee2d997f468317831a0274663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1951648275958562449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -253,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 5481373338580671124}
-  _entityMove: {fileID: 690232384045467285}
+  _entityMove: {fileID: 0}
   _entityStats: {fileID: 7519714795114039849}
   _render: {fileID: 2281376098325258713}
   _isAggressive: 0
@@ -320,7 +314,7 @@ MonoBehaviour:
   radius: 0.5
   height: 0.35
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -359,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 3670842596650257467, guid: d537d2d38efe88f42896d304268af784, type: 3}
 --- !u!114 &7519714795114039849 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
