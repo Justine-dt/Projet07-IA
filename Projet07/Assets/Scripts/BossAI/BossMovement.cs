@@ -51,6 +51,9 @@ public class BossMovement : Node
                 _bossRenderer.flipX = true;
             }
         }
+
+        //Rajouter tremblements de caméra
+
     }
 
 }
