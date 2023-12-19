@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EntityShoot : MonoBehaviour
 {
@@ -9,64 +10,48 @@ public class EntityShoot : MonoBehaviour
             1) crée une bullet 
             2) déclanche une attente
     */
-    [SerializeField] Transform _root;
-    [SerializeField] GameObject _bulletPrefab;
-    [SerializeField] Transform _bulletDirection;
-    public Vector2 _mousePosition;
-    public float _movementVelocity = 3f;
-    public Vector2 _direction;
-    public Vector2 _movement;
-    //private float duration = 2.0f;
+    [SerializeField] private Transform _root;
+    [SerializeField] private GameObject _bulletPrefab;
+    private Vector2 _mousePosition;
+    private Vector2 _targetDirection;
     private float _shootRate;
 
     Coroutine _shootRoutine;
-    public void UpdateShoot(float shootRate)
+
+    private void Start()
+    {
+        _root = new GameObject("AllBullets").GetComponent<Transform>();
+    }
+
+    public void StartShoot(float shootRate)
     {
         _shootRate = shootRate;
-        _direction = _movement;
         _shootRoutine = StartCoroutine(Shoot());
     }
 
     public void StopShoot()
     {
         StopCoroutine(_shootRoutine);
-        _shootRoutine = null;
     }
 
     IEnumerator Shoot()
     {
         while (true)
         {
+            // GetTarget ce sur quoi tu souhaite tirer joueur ou cursor = aim
             // TODO: manage if it's a "playerShoot" or a "entityShoot"
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(_mousePosition);
+            _mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            _targetDirection = (_mousePosition - (Vector2)transform.position);
+            float angle = Mathf.Atan2(_targetDirection.y, _targetDirection.x);
+            transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg);
             // Create a bullet
             // TODO: Instantiate should be done by the GameManager
-            Instantiate(_bulletPrefab, _bulletDirection.position, _bulletDirection.rotation, _root);
-            BulletScript bulletScript = _bulletPrefab.GetComponent<BulletScript>();
-            // Vérifie si le script de la balle est présent
-            /*if (bulletScript != null)
-            {
-                // Définir la direction de la balle 
-                bulletScript.SetDirection(transform.up);
-            }*/
-
+            GameObject _bullet  = Instantiate(_bulletPrefab, transform.position, transform.rotation, _root);
+            BulletScript bulletScript = _bullet.GetComponent<BulletScript>();
+            bulletScript.Direction = _targetDirection;
             // Attendre avant de tirer à nouveau
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(_shootRate);
         }
-    }
-
-    private void Update()
-    {
-        // Rotation 
-        Vector2 mouseScreenPosition = _mousePosition;
-        Vector3 mouseWorlPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        Vector3 targetDirection = mouseWorlPosition - transform.position;
-        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-
-        // Movement
-        Vector3 movement = _movement * _movementVelocity;
-        transform.position += movement * Time.deltaTime;
     }
     /*IEnumerator Cooldown(float duration)
     {

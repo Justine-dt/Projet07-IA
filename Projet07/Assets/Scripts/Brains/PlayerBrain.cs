@@ -9,12 +9,11 @@ public class PlayerBrain : Brain
     [SerializeField] InputActionReference _aim;
 
     [SerializeField] private float _shootRate;
-    public float ShootRate => 1 / _shootRate;
+    public float ShootPerSec => 1 / _shootRate;
 
-    private bool _canShoot = true;
+    private bool _isShooting = true;
 
     Coroutine _move;
-    Coroutine _shoot;
 
     protected override void Awake()
     {
@@ -22,8 +21,8 @@ public class PlayerBrain : Brain
         _moveAction.action.started += StartMove;
         _moveAction.action.canceled += CancelMove;
 
-        _shootAction.action.started += StartShoot;
-        _shootAction.action.canceled += StopShoot;
+        _shootAction.action.performed += StartShoot;
+        _shootAction.action.canceled += CancelShoot;
     }
 
     private void OnDestroy()
@@ -32,8 +31,8 @@ public class PlayerBrain : Brain
         _moveAction.action.started -= StartMove;
         _moveAction.action.canceled -= CancelMove;
 
-        _shootAction.action.started -= StartShoot;
-        _shootAction.action.canceled -= StopShoot;
+        _shootAction.action.performed -= StartShoot;
+        _shootAction.action.canceled -= CancelShoot;
     }
 
     private void StartMove(InputAction.CallbackContext obj)
@@ -54,26 +53,14 @@ public class PlayerBrain : Brain
 
     private void StartShoot(InputAction.CallbackContext obj)
     {
-        // Start the shooting coroutine when the shoot action is initiated
-        _shoot = StartCoroutine(Shoot(obj));
+        // recupere l'état de ta touche ici le clique de la souris
+        _isShooting = obj.ReadValue<float>() > 0;
+        _entityShoot.StartShoot(ShootPerSec);
     }
 
-    private void StopShoot(InputAction.CallbackContext obj)
+    private void CancelShoot(InputAction.CallbackContext obj)
     {
-        StopCoroutine(_shoot);
-        // Reset mousePosition
-        _entityShoot._mousePosition = Vector2.zero;
-        // Send reset to the function
-        _entityShoot.UpdateShoot(ShootRate);
-    }
-    private IEnumerator Shoot(InputAction.CallbackContext obj)
-    {
-        _canShoot = false;
-        // Start the shooting coroutine in the EntityShoot component
-        _entityShoot._mousePosition = (obj.ReadValue<Vector2>());
-        _entityShoot.UpdateShoot(ShootRate);
-        yield return null;
-        // Stop the shooting coroutine in the EntityShoot component
+        _isShooting = false;
         _entityShoot.StopShoot();
     }
 
