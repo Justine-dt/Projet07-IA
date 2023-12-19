@@ -182,7 +182,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -212,11 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927088a0b67e8174d810485fc4233a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4488340954373539320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1003414196319869379, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
-  m_PrefabInstance: {fileID: 3721413328010943547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6579157323219006496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -245,7 +240,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6579157323219006496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: -2241211416903815808, guid: ed693410441a7864e8cad58e56f92e4c, type: 3}
   m_CullingMode: 0
@@ -285,7 +280,6 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 0
-  _waypoint: {fileID: 4488340954373539320}
 --- !u!4 &6913423483021945704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

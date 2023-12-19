@@ -8,13 +8,14 @@ public class Collision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.name == "Brain") return;
-        //Debug.Log("trigger");
+        if (collision.gameObject.name == "Brain") return;
+        //Debug.Log(collision.gameObject.name);
         OnCollide?.Invoke(collision.transform);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.name == "Brain") return;
         OnStopCollide?.Invoke(collision.transform);
     }
 }
