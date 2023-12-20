@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using BehaviorTree;
 using UnityEngine;
 
-public class GuardBT : BehaviorTree.Tree
+public class GuardBT : Tree
 {
     public Transform _bossTransform;
     public SpriteRenderer _bossRenderer;

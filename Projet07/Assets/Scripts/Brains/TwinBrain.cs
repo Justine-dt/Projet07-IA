@@ -31,7 +31,6 @@ public class TwinBrain : Brain
     {
         if (source == transform || source == _twin.transform)
         {
-            Debug.Log(source.gameObject.name);
             ChangeState(_chaseState, target);
             ProtectiveState.OnAllyHurt -= Protect;
         }

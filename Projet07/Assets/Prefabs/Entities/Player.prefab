@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -323,6 +327,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1648243956453966657}
+    - targetCorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2739518563647675210}
   m_SourcePrefab: {fileID: 100100000, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
 --- !u!212 &864745587357596834 stripped
 SpriteRenderer:
@@ -464,6 +471,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9245758, y: 1.267297}
   m_EdgeRadius: 0
+--- !u!61 &2739518563647675210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558459597452974247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.037712097, y: -0.256436}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.75}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9245758, y: 1.267297}
+  m_EdgeRadius: 0
 --- !u!1 &6815460491635639088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -511,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5add959b9b2414e479f185187f32bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 0}
   _sprite: {fileID: 864745587357596834}
   _entityMove: {fileID: 1476164189373239599}
