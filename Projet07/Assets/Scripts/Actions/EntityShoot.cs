@@ -6,7 +6,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class EntityShoot : MonoBehaviour
 {
-    [SerializeField] private Transform _root;
+    [SerializeField] private Transform _root; // Must be define as "NONE"
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private EntityStats _entity;
     private Vector2 _targetPosition;
