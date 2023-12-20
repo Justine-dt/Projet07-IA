@@ -273,6 +273,7 @@ MonoBehaviour:
   _destination: {fileID: 9096547802786876118}
   _sprite: {fileID: 885442746188714021}
   _entityMove: {fileID: 0}
+  _entityShoot: {fileID: 0}
   _entityStats: {fileID: 2883180887588339864}
   _render: {fileID: 6913423483021945704}
   _isAggressive: 1
