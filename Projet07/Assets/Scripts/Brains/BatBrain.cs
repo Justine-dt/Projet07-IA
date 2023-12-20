@@ -17,7 +17,7 @@ public class BatBrain : Brain
         OnFirstChase -= ChasePlayer;
     }
 
-    protected override void ChangeState(State newState, GameObject target)
+    public override void ChangeState(State newState, GameObject target)
     {
         base.ChangeState(newState, target);
 
@@ -30,7 +30,6 @@ public class BatBrain : Brain
 
     private void ChasePlayer(GameObject target)
     {
-        Debug.Log("chase");
         if (_currentState is not ChaseState) ChangeState(_chaseState, target);
     }
 }
