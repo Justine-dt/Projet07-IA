@@ -32,4 +32,9 @@ public class EntityStats : MonoBehaviour
     {
         _stats[Attribute.HP] = 0;
     }
+
+    public void BoostStat(Attribute attr)
+    {
+        _stats[attr] += 5;
+    }
 }

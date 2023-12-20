@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected AIDestinationSetter _destination;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;

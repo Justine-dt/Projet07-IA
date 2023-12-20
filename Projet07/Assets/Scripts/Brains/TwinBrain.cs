@@ -40,7 +40,9 @@ public class TwinBrain : Brain
     private void Berserk()
     {
         _isAlwaysChasing = true;
-        //TODO -> boost attack and speed
+        _entityStats.BoostStat(Attribute.ATTACK);
+        _aiPath.maxSpeed *= 2;
+        //TODO -> change animation or sprite color ?
     }
 
     protected override void OnTriggerExit2D(Collider2D collision)
