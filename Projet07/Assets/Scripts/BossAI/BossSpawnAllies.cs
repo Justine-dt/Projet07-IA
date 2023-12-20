@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using BehaviorTree;
 
 public class BossSpawnAllies : Node
 {
@@ -19,8 +15,8 @@ public class BossSpawnAllies : Node
 
         Debug.Log("yiipeeeee");
 
-        state = NodeState.RUNNING;
-        return state;
+        _state = NodeState.RUNNING;
+        return _state;
     }
 
 }

@@ -1,42 +1,33 @@
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-
-namespace BehaviorTree
+public class Sequence : Node
 {
-    public class Sequence : Node
+    public Sequence() : base() { }
+    public Sequence(List<Node> children) : base(children) { }
+
+    public override NodeState Evaluate()
     {
-        public Sequence() : base() { }
-        public Sequence(List<Node> children) : base(children) { }
+        bool anyChildIsRunning = false;
 
-        public override NodeState Evaluate()
+        foreach (Node node in _children)
         {
-            bool anyChildIsRunning = false;
-
-            foreach (Node node in children)
+            switch (node.Evaluate())
             {
-                switch (node.Evaluate())
-                {
-                    case NodeState.FAILURE:
-                        state = NodeState.FAILURE;
-                        return state;
-                    case NodeState.SUCCESS:
-                        continue;
-                    case NodeState.RUNNING:
-                        anyChildIsRunning = true;
-                        continue;
-                    default:
-                        state = NodeState.SUCCESS;
-                        return state;
-                }
+                case NodeState.FAILURE:
+                    _state = NodeState.FAILURE;
+                    return _state;
+                case NodeState.SUCCESS:
+                    continue;
+                case NodeState.RUNNING:
+                    anyChildIsRunning = true;
+                    continue;
+                default:
+                    _state = NodeState.SUCCESS;
+                    return _state;
             }
-
-            state = anyChildIsRunning ? NodeState.RUNNING : NodeState.SUCCESS;
-            return state;
-
         }
+
+        _state = anyChildIsRunning ? NodeState.RUNNING : NodeState.SUCCESS;
+        return _state;
     }
 }
-
