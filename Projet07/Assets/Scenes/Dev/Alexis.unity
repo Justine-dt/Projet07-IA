@@ -356,74 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 642876637478692627, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.964098
-      objectReference: {fileID: 0}
-    - target: {fileID: 642876637478692627, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4590394
-      objectReference: {fileID: 0}
-    - target: {fileID: 642876637478692627, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.002261
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490462349904091200, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.964098
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490462349904091200, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4590394
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490462349904091200, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.002261
-      objectReference: {fileID: 0}
     - target: {fileID: 1995294766829685615, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
       propertyPath: m_Targets.Array.data[0].target
       value: 
       objectReference: {fileID: 382442646}
-    - target: {fileID: 1995294766829685615, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_Targets.Array.data[0].weight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2434266437471612852, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.964098
-      objectReference: {fileID: 0}
-    - target: {fileID: 2434266437471612852, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4590394
-      objectReference: {fileID: 0}
-    - target: {fileID: 2434266437471612852, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.002261636
-      objectReference: {fileID: 0}
-    - target: {fileID: 3639545323375636581, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636472733815735954, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636472733815735954, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636472733815735954, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636472733815735954, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636472733815735954, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8141166205798149042, guid: 66f72fb50c2318847b24e37cf15f2655, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
