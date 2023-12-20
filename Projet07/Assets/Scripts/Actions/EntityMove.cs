@@ -8,18 +8,12 @@ public class EntityMove : MonoBehaviour
     [SerializeField] EntityStats _entityStats;
     public Vector2 _direction;
 
-    /*public void Move(Vector2 _direction)
-    {
-        //Debug.Log(direction.x + ", " + direction.y);
-        //_player.transform.Translate(direction * Time.deltaTime * _entityStats.Stats[Attribute.SPEED]);
-    }*/
-
     public void UpdateMove()
     {
         float speed = _entityStats.Stats[Attribute.SPEED];
-        // Calcule la vélocité
+        // Calculate velocity
         Vector3 velocity = _direction * speed;
-        // Applique la vélocité au Rigidbody
+        // Apply velocity to Rigidbody
         _rigidbody.velocity = velocity;
     }
 }

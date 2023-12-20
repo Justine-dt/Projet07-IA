@@ -6,11 +6,6 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class EntityShoot : MonoBehaviour
 {
-    /* utiliser la date actuelle ou fonction asyncrone
-         -> coroutine 2 instruction pour attendre puis reprend son fil
-            1) crée une bullet 
-            2) déclanche une attente
-    */
     [SerializeField] private Transform _root;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private EntityStats _entity;
@@ -46,12 +41,12 @@ public class EntityShoot : MonoBehaviour
         }
         if(_entity.IsPlayer)
         {
-            // player donc aim la souris 
+            // If entity is a player target will be the player's mouse
             _targetPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         }
         else
         {
-            // ennemy donc aim le player 
+            // If entity is an ennemy target will be the player
             _targetPosition = Player.gameObject.transform.position;
         }
     }
@@ -60,10 +55,9 @@ public class EntityShoot : MonoBehaviour
     {
         while (true)
         {
-            // GetTarget qui tu est et ce sur quoi tu souhaite tirer joueur ou cursor = aim
-            // TODO: manage if it's a "playerShoot" or a "entityShoot"
+            // Manage if it's a "playerShoot" or a "ennemyShoot" -> asign your shoot target
             GetTarget();
-            // pour pas tirer comme dans valo
+            // Normalized will prevent bullets from accelerating
             _targetDirection = (_targetPosition - (Vector2)transform.position).normalized;
             float angle = Mathf.Atan2(_targetDirection.y, _targetDirection.x);
             transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg);
@@ -74,29 +68,16 @@ public class EntityShoot : MonoBehaviour
             bulletScript.Direction = _targetDirection;
             if (_entity.IsPlayer)
             {
-                // empeche collision entre les balles du joueur et lui meme
+                // Prevents collision between player's bullets and himself
                 _bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
             }
             else
             {
-                // empeche collision entre les balles de l'ennemi et lui meme
+                // Prevents enemy bullets from colliding with itself
                 _bullet.layer = LayerMask.NameToLayer("EnemyProjectile");
             }     
-            // Attendre avant de tirer à nouveau
+            // Wait before shooting again
             yield return new WaitForSeconds(_shootRate);
         }
     }
-    /*IEnumerator Cooldown(float duration)
-    {
-        float startTime = Time.time;
-
-        while (Time.time < startTime + duration)
-        {
-            var current = Time.time;
-
-            //current - startTime
-
-            yield return null;
-        }
-    }*/
 }
