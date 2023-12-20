@@ -22078,17 +22078,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d537d2d38efe88f42896d304268af784, type: 3}
---- !u!114 &729636481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3856137402817283973, guid: d537d2d38efe88f42896d304268af784, type: 3}
-  m_PrefabInstance: {fileID: 544789575}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26728f2bb5908984fa5e7850be5e6c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &838559187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22097,29 +22086,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2869766716522255731, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-      propertyPath: _entityShoot
-      value: 
-      objectReference: {fileID: 729636481}
-    - target: {fileID: 3042862050703884465, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-      propertyPath: _rigidbody
-      value: 
-      objectReference: {fileID: 3668230255763843391, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-    - target: {fileID: 3922574979747503590, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3922574979747503590, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.29
-      objectReference: {fileID: 0}
     - target: {fileID: 5858860109448506409, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.71
+      value: 20.08
       objectReference: {fileID: 0}
     - target: {fileID: 5858860109448506409, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5858860109448506409, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22156,10 +22129,6 @@ PrefabInstance:
     - target: {fileID: 8493918467290625444, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
       propertyPath: m_Name
       value: Coward
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493918467290625444, guid: feb99ec47b7861a49b76f3daa37a6048, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35281,8 +35250,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1103201931}
-  - {fileID: 544789575}
   - {fileID: 1889658580}
+  - {fileID: 544789575}
   - {fileID: 838559187}
   - {fileID: 1842219677}
   - {fileID: 224218877}

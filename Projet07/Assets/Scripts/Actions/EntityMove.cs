@@ -4,7 +4,6 @@ using UnityEngine;
 public class EntityMove : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rigidbody;
-    [SerializeField] GameObject _player;
     [SerializeField] EntityStats _entityStats;
     private Vector2 _direction;
 
