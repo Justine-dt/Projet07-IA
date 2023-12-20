@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using BehaviorTree;
 using UnityEngine;
 
-public class GuardBT : BehaviorTree.Tree
+public class GuardBT : Tree
 {
     [SerializeField] Transform _bossTransform;
     [SerializeField] SpriteRenderer _bossRenderer;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected AIDestinationSetter _destination;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
@@ -50,13 +51,14 @@ public abstract class Brain : MonoBehaviour
     {
         if (this is PlayerBrain) return;
         if (_currentState != null && _currentState is DeathState) return;
+        if (_currentState != null && _currentState.GetType() == newState.GetType()) return;
         
         _currentState?.OnExit();
         _currentState = newState;
         _currentState.OnEnter(this);
     }
 
-    protected virtual void ChangeState(State newState, GameObject target)
+    public virtual void ChangeState(State newState, GameObject target)
     {
         _target = target;
         ChangeState(newState);
@@ -64,19 +66,22 @@ public abstract class Brain : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_isAggressive || !IsTriggerValid(collision)) return;
+        if (!IsTriggerValid(collision)) return;
+        if (!_isAggressive) return;
         ChangeState(_chaseState, collision.gameObject);
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
-        if (_isAlwaysChasing && !IsTriggerValid(collision)) return;
+        if (!IsTriggerValid(collision)) return;
+        if (_isAlwaysChasing) return;
         ChangeState(_idleState);
     }
 
     protected bool IsTriggerValid(Collider2D collision)
     {
         if (collision.gameObject.name == "Brain") return false;
+        if (collision.gameObject.layer == 8) return false;
 
         string tag = collision.gameObject.tag;
         bool targetIsValid = tag == "Player" || _canAttackAnybody;

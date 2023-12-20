@@ -4,13 +4,14 @@ using UnityEngine;
 public class GetHit : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _sprite;
+    [SerializeField] private Color _hitColor = Color.red;
+    [SerializeField] private float _hitColorDuration = 0.1f;
 
-    public Color normalColor = Color.white;
-    public Color hitColor = Color.red;
-    public float hitColorDuration = 0.005f;
+    private Color _normalColor;
 
     void Awake()
     {
+        _normalColor = _sprite.color;
         EntityStats.OnHurt += ChangeColor;
     }
 
@@ -19,15 +20,16 @@ public class GetHit : MonoBehaviour
         EntityStats.OnHurt -= ChangeColor;
     }
 
-    void ChangeColor()
+    void ChangeColor(SpriteRenderer source, GameObject damageDealer)
     {
+        if (source != _sprite) return;
         StartCoroutine(ColorChange());
     }
 
     IEnumerator ColorChange()
     {
-        _sprite.color = hitColor;
-        yield return new WaitForSeconds(hitColorDuration);
-        _sprite.color = normalColor;
+        _sprite.color = _hitColor;
+        yield return new WaitForSeconds(_hitColorDuration);
+        _sprite.color = _normalColor;
     }
 }
