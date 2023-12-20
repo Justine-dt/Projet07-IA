@@ -7,6 +7,7 @@ public abstract class Brain : MonoBehaviour
     [SerializeField] protected AIDestinationSetter _destination;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
+    [SerializeField] protected EntityShoot _entityShoot;
     [SerializeField] protected EntityStats _entityStats;
     [SerializeField] protected Transform _render;
     [SerializeField] protected bool _isAggressive;
@@ -18,6 +19,7 @@ public abstract class Brain : MonoBehaviour
     public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
     public EntityMove EntityMove => _entityMove;
+    public EntityShoot EntityShoot => _entityShoot;
     public EntityStats EntityStats => _entityStats;
     public Transform Render => _render;
     public GameObject Target => _target;

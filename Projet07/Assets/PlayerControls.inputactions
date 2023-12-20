@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
+                    "name": "MousePosition",
                     "type": "Value",
                     "id": "0974a964-49fa-48a4-a2d9-0043022918eb",
                     "expectedControlType": "Vector2",
@@ -35,7 +35,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "7ca55e65-d845-40f9-a266-d99c3c2398f2",
                     "path": "2DVector",
                     "interactions": "",
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

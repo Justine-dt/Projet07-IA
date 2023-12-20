@@ -7,10 +7,13 @@ public class PlayerBrain : Brain
     [SerializeField] InputActionReference _moveAction;
     [SerializeField] InputActionReference _shootAction;
     [SerializeField] InputActionReference _aim;
-    [SerializeField] EntityShoot _entityShoot;
+
+    [SerializeField] private float _shootRate;
+    public float ShootPerSec => 1 / _shootRate;
+
+    private bool _isShooting = true;
 
     Coroutine _move;
-    Coroutine _shootRoutine;
 
     protected override void Awake()
     {
@@ -18,8 +21,8 @@ public class PlayerBrain : Brain
         _moveAction.action.started += StartMove;
         _moveAction.action.canceled += CancelMove;
 
-        _shootAction.action.started += StartShoot;
-        _shootAction.action.canceled += StopShoot;
+        _shootAction.action.performed += StartShoot;
+        _shootAction.action.canceled += CancelShoot;
     }
 
     private void OnDestroy()
@@ -28,47 +31,36 @@ public class PlayerBrain : Brain
         _moveAction.action.started -= StartMove;
         _moveAction.action.canceled -= CancelMove;
 
-        _shootAction.action.started -= StartShoot;
-        _shootAction.action.canceled -= StopShoot;
+        _shootAction.action.performed -= StartShoot;
+        _shootAction.action.canceled -= CancelShoot;
     }
 
     private void StartMove(InputAction.CallbackContext obj)
     {
         // Start the coroutine for continuous movement
         _move = StartCoroutine(Move(obj));
-        //_move = StartCoroutine(Move(obj));
     }
 
     private void CancelMove(InputAction.CallbackContext obj)
     {
         // Stop the movement coroutine when the move action is canceled (button released)
         StopCoroutine(_move);
+        // Reset direction
+        _entityMove._direction = Vector2.zero;
+        // Send reset to the function
+        _entityMove.UpdateMove();
     }
 
     private void StartShoot(InputAction.CallbackContext obj)
     {
-        // Start the shooting coroutine when the shoot action is initiated
-        _shootRoutine = StartCoroutine(Shoot());
+        // recupere l'état de ta touche ici le clique de la souris
+        _isShooting = obj.ReadValue<float>() > 0;
+        _entityShoot.StartShoot(ShootPerSec);
     }
 
-    private void StopShoot(InputAction.CallbackContext obj)
+    private void CancelShoot(InputAction.CallbackContext obj)
     {
-        // Stop the shooting coroutine when the shoot action is canceled (button released)
-        if (_shootRoutine != null)
-        {
-            StopCoroutine(_shootRoutine);
-            _shootRoutine = null;
-        }
-    }
-    private IEnumerator Shoot()
-    {
-        // Start the shooting coroutine in the EntityShoot component
-        _entityShoot.StartShoot();
-
-        // Wait until the shoot action is canceled (button released)
-        yield return new WaitUntil(() => _shootAction.action.phase == InputActionPhase.Canceled);
-
-        // Stop the shooting coroutine in the EntityShoot component
+        _isShooting = false;
         _entityShoot.StopShoot();
     }
 
@@ -77,8 +69,8 @@ public class PlayerBrain : Brain
         while (true)
         {
             // Continuously update the player's position based on the input direction
-            //_entityMove.Move(dir);
-            _entityMove.Move(obj.ReadValue<Vector2>());
+            _entityMove._direction = (obj.ReadValue<Vector2>());
+            _entityMove.UpdateMove();
             yield return null;
         }
     }
