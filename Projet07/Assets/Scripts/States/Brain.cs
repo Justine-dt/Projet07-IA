@@ -56,7 +56,7 @@ public abstract class Brain : MonoBehaviour
         _currentState.OnEnter(this);
     }
 
-    protected virtual void ChangeState(State newState, GameObject target)
+    public virtual void ChangeState(State newState, GameObject target)
     {
         _target = target;
         ChangeState(newState);

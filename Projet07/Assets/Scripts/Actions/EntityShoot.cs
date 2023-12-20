@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class EntityShoot : MonoBehaviour
 {
@@ -14,6 +12,8 @@ public class EntityShoot : MonoBehaviour
     [SerializeField] private Transform _root;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private EntityStats _entity;
+    [SerializeField] private Brain _brain;
+    [SerializeField] private GameObject _render;
     private Vector2 _targetPosition;
     private Vector2 _targetDirection;
     private float _shootRate;
@@ -23,7 +23,7 @@ public class EntityShoot : MonoBehaviour
     private void Start()
     {
         _root = new GameObject("AllBullets").GetComponent<Transform>();
-        _entity = GetComponentInParent<EntityStats>();
+        _root.parent = _render.transform;
     }
 
     public void StartShoot(float shootRate)
@@ -39,11 +39,6 @@ public class EntityShoot : MonoBehaviour
 
     private void GetTarget()
     {
-        EntityStats Player = GameManager.Instance.Player;
-        if (Player != null) 
-        {
-            return;
-        }
         if(_entity.IsPlayer)
         {
             // player donc aim la souris 
@@ -52,7 +47,7 @@ public class EntityShoot : MonoBehaviour
         else
         {
             // ennemy donc aim le player 
-            _targetPosition = Player.gameObject.transform.position;
+            _targetPosition = _brain.Target.transform.position;
         }
     }
 

@@ -25,6 +25,12 @@ public class IdleState : State
         if (_random == -1 || WaitFor(_random)) NewDestination();
     }
 
+    public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
+    {
+        base.OnHurt(source, damageDealer);
+        _brain.ChangeState(new ChaseState(), damageDealer);
+    }
+
     private void NewDestination()
     {
         _random = Random.Range(2f, 4f);
