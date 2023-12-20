@@ -27,11 +27,12 @@ public class TwinBrain : Brain
         _twin = twin;
     }
 
-    private void Protect(Transform source)
+    private void Protect(Transform source, GameObject target)
     {
         if (source == transform || source == _twin.transform)
         {
-            ChangeState(_chaseState);
+            Debug.Log(source.gameObject.name);
+            ChangeState(_chaseState, target);
             ProtectiveState.OnAllyHurt -= Protect;
         }
     }
@@ -44,7 +45,8 @@ public class TwinBrain : Brain
 
     protected override void OnTriggerExit2D(Collider2D collision)
     {
-        if (_isAlwaysChasing && !IsTriggerValid(collision)) return;
+        if (!IsTriggerValid(collision)) return;
+        if (_isAlwaysChasing) return;
         ChangeState(_protectiveState);
         ProtectiveState.OnAllyHurt += Protect;
     }
