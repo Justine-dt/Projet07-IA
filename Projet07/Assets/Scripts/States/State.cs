@@ -33,7 +33,6 @@ public abstract class State
     public virtual void OnHurt(SpriteRenderer source, GameObject damageDealer)
     {
         if (source != _brain.Sprite) return;
-        Debug.Log(damageDealer.name);
     }
 
     public virtual void OnUpdate() { }
