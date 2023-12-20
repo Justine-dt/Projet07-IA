@@ -30,9 +30,6 @@ public class BatBrain : Brain
 
     private void ChasePlayer(GameObject target)
     {
-        if (!(CurrentState is ChaseState))
-        {
-            ChangeState(_chaseState, target);
-        }
+        if (CurrentState is not ChaseState) ChangeState(_chaseState, target);
     }
 }
