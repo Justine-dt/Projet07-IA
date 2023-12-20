@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class FanBoyState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    //Stock l'état actuel
+    protected State _state;
+
+    public virtual void OnEnter()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    //Sortir de l'état
+    public virtual void OnExit()
     {
-        
+
+    }
+
+    //Boucler sur l'état actuel
+    public virtual void OnUpdate()
+    {
+
     }
 }

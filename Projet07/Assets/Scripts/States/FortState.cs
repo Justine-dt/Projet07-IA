@@ -2,36 +2,24 @@ using System;
 
 public class FortState : State
 {
-    /*//Stock l'état actuel
-    private State _state;
+    //Stock l'état actuel
+    protected State _state;
 
-    public FortState()
+    public virtual void OnEnter()
     {
 
     }
 
-    //Changement d'état
-    public void ChangeState(State newState)
+    //Sortir de l'état
+    public virtual void OnExit()
     {
-        _state = newState;
-        _state.OnCollide();
+
     }
 
-    //Effectuer une action en fonction de l'état actuel
-    public void Action()
+    //Boucler sur l'état actuel
+    public virtual void OnUpdate()
     {
-        switch (_state)
-        {
-            case State.:
-                Console.WriteLine("En cours d'exécution...");
-                break;
-            case State.Stop:
-                Console.WriteLine("Arrêté.");
-                break;
-            default:
-                Console.WriteLine("État non reconnu.");
-                break;
-        }
-    }*/
+
+    }
 
 }
