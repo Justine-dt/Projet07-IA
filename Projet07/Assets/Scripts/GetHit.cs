@@ -19,8 +19,9 @@ public class GetHit : MonoBehaviour
         EntityStats.OnHurt -= ChangeColor;
     }
 
-    void ChangeColor()
+    void ChangeColor(SpriteRenderer source, GameObject damageDealer)
     {
+        if (source != _sprite) return;
         StartCoroutine(ColorChange());
     }
 

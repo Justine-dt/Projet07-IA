@@ -109,9 +109,10 @@ MonoBehaviour:
   _destination: {fileID: -4082619018618258347}
   _sprite: {fileID: 4963542994322317247}
   _entityMove: {fileID: 0}
+  _entityShoot: {fileID: 0}
   _entityStats: {fileID: 6965002432813567746}
   _render: {fileID: 1682903107856393458}
-  _isAggressive: 1
+  _isAggressive: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0

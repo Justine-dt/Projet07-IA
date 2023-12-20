@@ -4,20 +4,19 @@ public class ChaseState : State
 {
     public override void OnEnter(Brain brain)
     {
+        base.OnEnter(brain);
         Collision.OnCollide += OnCollide;
         Collision.OnStopCollide += OnStopCollide;
 
-        base.OnEnter(brain);
         _chasing = true;
         _brain.Destination.target = _brain.Target.transform;
     }
 
     public override void OnExit()
     {
+        base.OnExit();
         Collision.OnCollide -= OnCollide;
         Collision.OnStopCollide -= OnStopCollide;
-
-        base.OnExit();
     }
 
     public override void OnUpdate()
@@ -39,8 +38,8 @@ public class ChaseState : State
 
     private void Attack()
     {
-        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK]);
-        _brain.EntityStats.TakeDamage(1); //For testing only
+        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK], _brain.Sprite.gameObject);
+        //_brain.EntityStats.TakeDamage(1, _brain.Target); //For testing only
         ResetCooldown();
     }
 }
