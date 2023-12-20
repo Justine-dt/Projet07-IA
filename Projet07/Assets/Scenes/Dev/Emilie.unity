@@ -12958,6 +12958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 6218958215011660672, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8277759471239490061, guid: e246d63ef503f9c43a596aa63ab0747d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.426
@@ -34868,7 +34872,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &248813458
+--- !u!1001 &616973939
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -34880,17 +34884,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blob
       objectReference: {fileID: 0}
-    - target: {fileID: 5712195057349208709, guid: cc9e9b269fd3f59479d642c35c417121, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 7776420019064550152, guid: cc9e9b269fd3f59479d642c35c417121, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7776420019064550152, guid: cc9e9b269fd3f59479d642c35c417121, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 7776420019064550152, guid: cc9e9b269fd3f59479d642c35c417121, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7776420019064550152, guid: cc9e9b269fd3f59479d642c35c417121, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35285,7 +35285,7 @@ SceneRoots:
   - {fileID: 1596939823}
   - {fileID: 2043080480}
   - {fileID: 245894503}
-  - {fileID: 248813458}
   - {fileID: 1343728872}
   - {fileID: 693147327}
   - {fileID: 60236809}
+  - {fileID: 616973939}
