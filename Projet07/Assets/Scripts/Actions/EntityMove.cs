@@ -6,7 +6,9 @@ public class EntityMove : MonoBehaviour
     [SerializeField] Rigidbody2D _rigidbody;
     [SerializeField] GameObject _player;
     [SerializeField] EntityStats _entityStats;
-    public Vector2 _direction;
+    private Vector2 _direction;
+
+    public Vector2 Direction { get => _direction; set => _direction = value; }
 
     public void UpdateMove()
     {

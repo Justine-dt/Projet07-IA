@@ -164,4 +164,4 @@ MonoBehaviour:
   _bulletSpeed: 15
   _direction: {x: 0, y: 0}
   _rigidbodyBullet: {fileID: 3793568766403590464}
-  _lifeTime: 2
+  _lifeTime: 1
