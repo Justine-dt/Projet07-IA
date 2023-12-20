@@ -13,6 +13,7 @@ public abstract class State
 
     public virtual void OnEnter(Brain brain)
     {
+        EntityStats.OnHurt += OnHurt;
         Debug.Log(GetType().Name);
         //Collision.OnCollide += OnCollide;
         _brain = brain;
@@ -29,12 +30,17 @@ public abstract class State
         if (source != _brain.Render) return;
     }
 
-    public virtual void OnHurt() { }
+    public virtual void OnHurt(SpriteRenderer source, GameObject damageDealer)
+    {
+        if (source != _brain.Sprite) return;
+        Debug.Log(damageDealer.name);
+    }
 
     public virtual void OnUpdate() { }
 
     public virtual void OnExit()
     {
+        EntityStats.OnHurt -= OnHurt;
         //Collision.OnCollide -= OnCollide;
     }
 

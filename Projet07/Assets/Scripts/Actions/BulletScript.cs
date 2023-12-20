@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -21,10 +19,10 @@ public class BulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Détruire la balle lorsqu'elle entre en collision avec un ennemi
-        if (other.CompareTag("Enemy"))
+        if (other.gameObject.layer == 7)
         {
+            other.gameObject.GetComponentInParent<EntityStats>().TakeDamage(1, GetComponentInParent<Collision>().gameObject);
             Destroy(gameObject);
         }
     }
 }
-

@@ -350,6 +350,8 @@ MonoBehaviour:
   _root: {fileID: 0}
   _bulletPrefab: {fileID: 8026452394137051356, guid: 44afdf487e6f61b408c52922b16392a0, type: 3}
   _entity: {fileID: 2903297041497680927}
+  _brain: {fileID: 808719203930792886}
+  _render: {fileID: 6558459597452974247}
 --- !u!114 &1476164189373239599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +387,11 @@ Transform:
 --- !u!50 &5861296537064212781 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+  m_PrefabInstance: {fileID: 3741529558154768572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6558459597452974247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
   m_PrefabInstance: {fileID: 3741529558154768572}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6815460491635639088 stripped

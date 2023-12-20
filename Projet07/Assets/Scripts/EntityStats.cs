@@ -12,17 +12,20 @@ public enum Attribute
 
 public class EntityStats : MonoBehaviour
 {
-    public static event Action OnHurt;
-    public bool IsDead => _stats[Attribute.HP] <= 0;
+    public static event Action<SpriteRenderer, GameObject> OnHurt;
+
+    [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private bool _isPlayer;
-    public bool IsPlayer => _isPlayer;
-    public SerializedDictionary<Attribute, int> Stats => _stats;
     [SerializeField] private SerializedDictionary<Attribute, int> _stats = new();
 
-    public void TakeDamage(int damage)
+    public bool IsDead => _stats[Attribute.HP] <= 0;
+    public bool IsPlayer => _isPlayer;
+    public SerializedDictionary<Attribute, int> Stats => _stats;
+
+    public void TakeDamage(int damage, GameObject source)
     {
         _stats[Attribute.HP] -= damage;
-        OnHurt?.Invoke();
+        OnHurt?.Invoke(_sprite, source);
     }
 
     public void Kill()
