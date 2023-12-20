@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Tilemaps;
+using TMPro;
 
 public class MalingreBrain : Brain
 {
@@ -16,8 +12,8 @@ public class MalingreBrain : Brain
     GameObject nearestObstacle;
     int numberOfObstacles;
 
-    Vector2 playerPosition;
-    Vector2 target;
+    Vector3 playerPosition;
+    Vector3 target;
 
     bool isPanicking = false;
     bool isShooting = false;
@@ -26,6 +22,7 @@ public class MalingreBrain : Brain
     {
 
     }
+
 
     void Update()
     {
@@ -82,7 +79,7 @@ public class MalingreBrain : Brain
                 GameObject currentObstacle = obstacles[i];
 
                 //If the current obstacle is nearer than the previous one, update the variable nearestObstacle
-                if ((_malingre.transform.position - currentObstacle.transform.position).magnitude < (_malingre.transform.position - nearestObstacle.transform.position).magnitude)
+                if ((transform.position - currentObstacle.transform.position).magnitude < (transform.position - nearestObstacle.transform.position).magnitude)
                 {
                     nearestObstacle = currentObstacle;
                 }
@@ -94,28 +91,28 @@ public class MalingreBrain : Brain
 
 
         //Check position of player to go to the best side of the nearest obstacle to hide
-        playerPosition = _player.transform.position - _malingre.transform.position;
+        playerPosition = _player.transform.position - transform.position;
 
         if (Mathf.Abs(target.x - playerPosition.x) > Mathf.Abs(target.y - playerPosition.y))
         {
             if (target.x - playerPosition.x > 0)
             {
-                target.x += 1;
+                target.x += 1.2f;
             }
             else
             {
-                target.x -= 1;
+                target.x -= 1.2f;
             }
         }
         else
         {
             if (target.y - playerPosition.y > 0)
             {
-                target.y += 1.4f;
+                target.y += 1.5f;
             }
             else
             {
-                target.y -= 1.4f;
+                target.y -= 1.5f;
             }
         }
     }
