@@ -25,7 +25,7 @@ public class DetonateState : State
 
     public void Detonate()
     {
-        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK]);
+        _brain.GetTargetStats().TakeDamage(_stats[Attribute.ATTACK], _brain.Sprite.gameObject);
         _brain.EntityStats.Kill();
     }
 }

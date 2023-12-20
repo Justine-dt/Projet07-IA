@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927088a0b67e8174d810485fc4233a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 4606237701920345118}
+  _isPlayer: 0
   _stats:
     _serializedList:
     - Key: 0
@@ -130,7 +132,7 @@ GameObject:
   - component: {fileID: 4242202820620690586}
   - component: {fileID: 5253379550563464876}
   - component: {fileID: 4474672609093329939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
