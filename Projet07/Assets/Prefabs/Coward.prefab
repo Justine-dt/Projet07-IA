@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 8052322168532196528}
   _entityMove: {fileID: 3042862050703884465}
+  _entityShoot: {fileID: 0}
   _entityStats: {fileID: 5473347546614926349}
   _render: {fileID: 4325508578871273469}
   _isAggressive: 0

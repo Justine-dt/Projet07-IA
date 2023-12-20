@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] float _bulletSpeed = 5f;
+    [SerializeField] private float _bulletSpeed = 6f;
+    [SerializeField] private Vector2 _direction;
+    [SerializeField] private Rigidbody2D _rigidbodyBullet;
+    [SerializeField] private float _lifeTime = 0.01f;
 
-    Vector3 _direction;
+    public Vector2 Direction { get => _direction; set => _direction = value; }
 
-    public void SetDirection(Vector3 direction)
+    private void Start()
     {
-        // Normalize la direction pour s'assurer que la vitesse est constante
-        _direction = direction.normalized;
+        // Movement
+        _rigidbodyBullet.velocity = _direction * _bulletSpeed;
+        Destroy(gameObject, _lifeTime);
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        MoveBullet();
-    }
-
-    void MoveBullet()
-    {
-        // Déplace la balle dans la direction spécifiée à une vitesse constante
-        transform.Translate(_direction * _bulletSpeed * Time.deltaTime, Space.World);
-    }
-
-    /*void OnTriggerEnter2D(Collider2D other)
-    {
-        // Gère la logique de collision ici si nécessaire
-        // Par exemple, détruire la balle lorsqu'elle entre en collision avec un ennemi
+        // Détruire la balle lorsqu'elle entre en collision avec un ennemi
         if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
-    }*/
+    }
 }
 
