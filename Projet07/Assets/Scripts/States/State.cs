@@ -13,7 +13,7 @@ public abstract class State
 
     public virtual void OnEnter(Brain brain)
     {
-        Debug.Log(GetType().Name);
+        //Debug.Log(GetType().Name);
         //Collision.OnCollide += OnCollide;
         _brain = brain;
         _cooldown = Time.time + _stats[Attribute.ATKSPEED];
