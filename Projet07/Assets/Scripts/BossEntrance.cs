@@ -8,6 +8,7 @@ public class BossEntrance : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(_bossLevel));
+        if (!collision.gameObject.CompareTag("Player")) return;
+        SceneManager.LoadScene(_bossLevel);
     }
 }
