@@ -2614,6 +2614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2118121042695620751, guid: f18cfa44f200dc446bee2bd31527ae01, type: 3}
       propertyPath: m_Name
+      value: Fort-Tresse
       objectReference: {fileID: 0}
     - target: {fileID: 4164629194924986626, guid: f18cfa44f200dc446bee2bd31527ae01, type: 3}
       propertyPath: m_LocalPosition.x
