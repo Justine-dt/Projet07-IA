@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
 
 public class MalingreBrain : Brain
 {
     [SerializeField] GameObject _malingre;
-    [SerializeField] SpriteRenderer renderer;
+    [SerializeField] SpriteRenderer _renderer;
 
     GameObject _player;
     GameObject[] obstacles;
@@ -16,15 +15,9 @@ public class MalingreBrain : Brain
     Vector3 target;
 
     bool isPanicking = false;
-    bool isShooting = false;
+    //bool isShooting = false;
 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
+    protected override void Update()
     {
         //Recherche si le nombre d'obstacles a baissé | Si oui, refaire la recherche
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
