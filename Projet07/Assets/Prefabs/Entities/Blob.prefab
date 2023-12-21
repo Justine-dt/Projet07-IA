@@ -115,6 +115,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 1
+  _ismoving: 1
 --- !u!1 &5712195057349208709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

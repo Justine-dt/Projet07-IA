@@ -27,13 +27,13 @@ public class ChaseState : State
     public override void OnCollide(Transform source)
     {
         base.OnCollide(source);
-        _chasing = false;
+        if (_collided) _chasing = false;
     }
 
     public override void OnStopCollide(Transform source)
     {
         base.OnStopCollide(source);
-        _chasing = true;
+        if (_collided) _chasing = true;
     }
 
     private void Attack()

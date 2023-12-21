@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[1].Value
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[2].Value
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2341898942853211783, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalScale.x
@@ -282,6 +282,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 1
   _dealDamageOnCollide: 1
+  _ismoving: 1
 --- !u!4 &2281376098325258713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
