@@ -25,6 +25,21 @@ public class ChaseState : State
         if (!_chasing && _brain.DealDamageOnCollide && WaitFor(_stats[Attribute.ATKSPEED])) Attack();
     }
 
+    public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
+    {
+        base.OnHurt(source, damageDealer);
+        if (!_hurted) return;
+        if (_brain.IsFleeing)
+        {
+            //Debug.Log("FUIT");
+            _brain.ChangeState(new RunAwayState(), damageDealer);
+            return;
+        }
+        //Debug.Log($"=> HURTED : {source.transform.parent.name}");
+        if (!_brain.Ismoving) return;
+        _brain.ChangeState(new ChaseState(), damageDealer);
+    }
+
     public override void OnCollide(Transform source)
     {
         base.OnCollide(source);

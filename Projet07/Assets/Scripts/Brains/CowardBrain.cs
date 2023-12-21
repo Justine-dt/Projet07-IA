@@ -6,7 +6,7 @@ public class CowardBrain : Brain
 {
     // 3 Differents States 
     // Idle State
-    // Attack State
+    // Chase State
     // RunAway State
 
 }
