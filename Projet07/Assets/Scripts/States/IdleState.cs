@@ -10,7 +10,7 @@ public class IdleState : State
         base.OnEnter(brain);
         if (!_brain.Ismoving) return;
         _random = -1;
-        //_waypoint = new GameObject("Waypoint");
+        _waypoint = new GameObject("Waypoint");
         _brain.Destination.target = _waypoint.GetComponent<Transform>();
         _brain.Destination.target.position = _brain.Render.position;
     }

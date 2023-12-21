@@ -11,5 +11,10 @@ public class ShootState : State
         _shootRate = 3f;
         _brain.EntityShoot.StartShoot(ShootPerSec);
     }
- 
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        _brain.EntityShoot.StopShoot();
+    }
 }

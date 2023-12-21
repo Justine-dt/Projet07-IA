@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7012689210949170590, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -173,7 +177,6 @@ MonoBehaviour:
   _render: {fileID: 6089479299610254038}
   _isAggressive: 0
   _isFleeing: 0
-  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
