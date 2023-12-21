@@ -8,6 +8,6 @@ public class ProtectiveState : IdleState
     public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
     {
         base.OnHurt(source, damageDealer);
-        OnAllyHurt?.Invoke(_brain.transform, damageDealer);
+        if (_hurted) OnAllyHurt?.Invoke(_brain.transform, damageDealer);
     }
 }
