@@ -18,11 +18,25 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Détruire la balle lorsqu'elle entre en collision avec un ennemi
-        if (other.gameObject.layer == 7)
+        GameObject shooter = GetComponentInParent<Collision>().gameObject;
+        bool isPlayer = shooter.layer == 9;
+        int targetLayer = other.gameObject.layer;
+
+        if ((isPlayer && targetLayer == 7) || (!isPlayer && other.gameObject.CompareTag("Player")))
         {
-            other.gameObject.GetComponentInParent<EntityStats>().TakeDamage(1, GetComponentInParent<Collision>().gameObject);
-            Destroy(gameObject);
+            Attack(other, shooter);
         }
+    }
+
+    private void Attack(Collider2D target, GameObject shooter)
+    {
+        target.gameObject.GetComponentInParent<EntityStats>().TakeDamage(1, shooter);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 0) return;
+        Destroy(gameObject);
     }
 }

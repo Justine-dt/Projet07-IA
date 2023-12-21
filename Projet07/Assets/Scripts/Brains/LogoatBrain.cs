@@ -1,12 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Tilemaps;
 
 public class LogoatBrain : MonoBehaviour
 {
     [SerializeField] GameObject _logoat;
-    [SerializeField] SpriteRenderer renderer;
+    [SerializeField] SpriteRenderer _renderer;
     UnityEngine.Vector2 direction;
 
     void Start()
@@ -14,14 +11,11 @@ public class LogoatBrain : MonoBehaviour
         direction.Set(1.0f, 1.0f);
     }
 
-
     void Update()
     {
         //entityMove.Move(direction);
         _logoat.transform.Translate(direction * Time.deltaTime * 3);
     }
-
-    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -35,13 +29,13 @@ public class LogoatBrain : MonoBehaviour
         {
             direction.x *= -1;
 
-            if (renderer.flipX == true)
+            if (_renderer.flipX == true)
             {
-                renderer.flipX = false;
+                _renderer.flipX = false;
             }
-            else if (renderer.flipX == false)
+            else if (_renderer.flipX == false)
             {
-                renderer.flipX = true;
+                _renderer.flipX = true;
             }
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Brain : MonoBehaviour
 {
+    [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected AIDestinationSetter _destination;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected EntityMove _entityMove;
@@ -17,12 +18,15 @@ public abstract class Brain : MonoBehaviour
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
     [SerializeField] protected bool _dealDamageOnCollide;
+    [SerializeField] protected bool _ismoving;
+    
 
     public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
     public bool IsFleeing => _isFleeing;
     public bool IsCoward => _isCoward;
     public EntityMove EntityMove => _entityMove;
+    public bool Ismoving => _ismoving;
     public EntityShoot EntityShoot => _entityShoot;
     public EntityStats EntityStats => _entityStats;
     public Transform Render => _render;
@@ -53,7 +57,7 @@ public abstract class Brain : MonoBehaviour
 
     public void ChangeState(State newState)
     {
-        if (this is PlayerBrain) return;
+        if (this is PlayerBrain && newState is not DeathState) return;
         if (_currentState != null && _currentState is DeathState) return;
         if (_currentState != null && _currentState.GetType() == newState.GetType()) return;
         

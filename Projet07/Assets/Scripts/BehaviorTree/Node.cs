@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace BehaviorTree
 {
@@ -16,21 +15,18 @@ namespace BehaviorTree
         protected NodeState state;
 
         public Node parent;
-        protected List<Node> children;
+        protected List<Node> children = new List<Node>();
 
-        private Dictionary<string, object>  _dataContext = new Dictionary<string, object>();
+        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
         public Node()
         {
             parent = null;
         }
-
         public Node(List<Node> children)
         {
-            foreach(Node child in children)
-            {
+            foreach (Node child in children)
                 _Attach(child);
-            }
         }
 
         private void _Attach(Node node)
@@ -48,19 +44,23 @@ namespace BehaviorTree
 
         public object GetData(string key)
         {
-            object val = null;
-            if (_dataContext.TryGetValue(key, out val))
-                return val;
+            object value = null;
+            if (_dataContext.TryGetValue(key, out value))
+                return value;
 
             Node node = parent;
-            if (node != null)
-                val = node.GetData(key);
-            return val;
+            while (node != null)
+            {
+                value = node.GetData(key);
+                if (value != null)
+                    return value;
+                node = node.parent;
+            }
+            return null;
         }
 
         public bool ClearData(string key)
         {
-            bool cleared = false;
             if (_dataContext.ContainsKey(key))
             {
                 _dataContext.Remove(key);
@@ -68,10 +68,15 @@ namespace BehaviorTree
             }
 
             Node node = parent;
-            if (node != null)
-                cleared = node.ClearData(key);
-            return cleared;
+            while (node != null)
+            {
+                bool cleared = node.ClearData(key);
+                if (cleared)
+                    return true;
+                node = node.parent;
+            }
+            return false;
         }
-
     }
+
 }

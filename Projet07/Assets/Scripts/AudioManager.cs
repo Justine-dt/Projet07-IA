@@ -1,46 +1,36 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
-    AudioSource audio;
-    public AudioClip deathSong;
-    public AudioClip gameSong;
-
+    [SerializeField] private AudioClip _deathSong;
+    [SerializeField] private AudioClip _gameSong;
+    private AudioSource _audio;
 
     [Range(0f, 1f)]
-    public float volume;
+    [SerializeField] private float _volume;
 
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
-        volume = 0.5f;
+        _audio = GetComponent<AudioSource>();
+        _volume = 0.5f;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         GameSong();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void DeathSong()
     {
-        audio.clip = deathSong;
-        audio.volume = volume;
-        audio.Play();
+        _audio.clip = _deathSong;
+        _audio.volume = _volume;
+        _audio.Play();
     }
 
     public void GameSong()
     {
-        audio.clip = gameSong;
-        audio.volume = volume;
-        audio.Play();
+        _audio.clip = _gameSong;
+        _audio.volume = _volume;
+        _audio.Play();
     }
-
 }

@@ -35,6 +35,12 @@ public class PlayerBrain : Brain
         _shootAction.action.canceled -= CancelShoot;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if (_currentState != null && _currentState is DeathState) GameManager.Instance.GameOver();
+    }
+
     private void StartMove(InputAction.CallbackContext obj)
     {
         // Start the coroutine for continuous movement

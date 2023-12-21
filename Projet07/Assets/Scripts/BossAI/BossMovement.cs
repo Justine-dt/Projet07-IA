@@ -1,59 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
-using UnityEditor.Rendering;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class BossMovement : Node
 {
-    Transform _bossTransform;
+    UnityEngine.Transform _bossTransform;
     SpriteRenderer _bossRenderer;
     UnityEngine.Vector2 direction;
 
-    float _speed = 2f;
-    
+    float _speed = 1.5f;
 
-    public BossMovement(Transform transform, SpriteRenderer renderer)
+    bool canMove = true;
+
+    public BossMovement(UnityEngine.Transform transform, SpriteRenderer renderer)
     {
         direction.Set(1.0f, 1.0f);
         _bossTransform = transform;
         _bossRenderer = renderer;
+
+        _bossTransform.GetComponent<Rebond>().OnReboundY += ChangeDirectionY;
+        _bossTransform.GetComponent<Rebond>().OnReboundX += ChangeDirectionX;
+
+        _bossTransform.GetComponent<SpawnEnemies>().StartSpawn += StopMovement;
+        _bossTransform.GetComponent<SpawnEnemies>().StopSpawn += ContinueMovement;
     }
 
 
     public override NodeState Evaluate()
     {
-        _bossTransform.Translate(direction * Time.deltaTime * _speed);
+        if(canMove)
+        {
+            _bossTransform.Translate(direction * Time.deltaTime * _speed);
+        }
 
         state = NodeState.RUNNING;
         return state;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void ChangeDirectionY()
     {
+        direction.y *= -1;
+    }
 
-        if (collision.collider.name == "UpDownEnemyWalls")
-        {
-            direction.y *= -1;
-        }
+    void ChangeDirectionX()
+    {
+        direction.x *= -1;
+        _bossRenderer.flipX = !_bossRenderer.flipX;
+    }
 
-        if (collision.collider.name == "SideEnemyWalls")
-        {
-            direction.x *= -1;
+    void StopMovement()
+    {
+        canMove = false;
+    }
 
-            if (_bossRenderer.flipX == true)
-            {
-                _bossRenderer.flipX = false;
-            }
-            else if (_bossRenderer.flipX == false)
-            {
-                _bossRenderer.flipX = true;
-            }
-        }
-
-        //Rajouter tremblements de caméra
-
+    void ContinueMovement()
+    {
+        canMove = true;
     }
 
 }
