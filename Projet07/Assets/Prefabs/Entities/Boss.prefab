@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595584645dcba6f4fbc35b2fc7ced059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cinemachine: {fileID: 0}
 --- !u!61 &2064100164402465693
 BoxCollider2D:
   m_ObjectHideFlags: 0
