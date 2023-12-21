@@ -28,6 +28,8 @@ public class IdleState : State
     public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
     {
         base.OnHurt(source, damageDealer);
+        if (!_hurted) return;
+        Debug.Log($"=> HURTED : {source.transform.parent.name}");
         _brain.ChangeState(new ChaseState(), damageDealer);
     }
 
