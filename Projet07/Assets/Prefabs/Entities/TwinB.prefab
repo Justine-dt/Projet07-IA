@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwinB
       objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Size.x
       value: 0.82426655
@@ -175,6 +179,8 @@ MonoBehaviour:
   _entityStats: {fileID: 6965002432813567746}
   _render: {fileID: 1682903107856393458}
   _isAggressive: 0
+  _isFleeing: 0
+  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
@@ -262,7 +268,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5

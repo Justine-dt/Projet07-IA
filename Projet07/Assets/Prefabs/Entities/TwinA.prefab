@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwinA
       objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Size.x
       value: 0.8094633
@@ -108,6 +112,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.137
       objectReference: {fileID: 0}
+    - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -153,6 +161,8 @@ MonoBehaviour:
   _entityStats: {fileID: 8574065049400157244}
   _render: {fileID: 76355613347368908}
   _isAggressive: 0
+  _isFleeing: 0
+  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
@@ -261,7 +271,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
