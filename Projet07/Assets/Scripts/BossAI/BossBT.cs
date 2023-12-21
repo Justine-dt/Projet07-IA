@@ -1,27 +1,25 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class GuardBT : Tree
+using BehaviorTree;
+
+public class BossBT : BehaviorTree.Tree
 {
-    public Transform _bossTransform;
-    public SpriteRenderer _bossRenderer;
-    public float speed = 2f;
+    [SerializeField] Transform _bossTransform;
+    [SerializeField] SpriteRenderer _bossRenderer;
 
     public static bool hasPlayerEnteredRoom = false;
 
     
     protected override Node SetupTree()
     {
-        /*
-        Node root = new Sequence(new List<Node>
-        {
-            new BossMovement(_bossTransform, _bossRenderer),
-            new BossSpawnAllies(_bossTransform)
-        });
-        */
 
         Node root = new BossMovement(_bossTransform, _bossRenderer);
+        //new BossSpawnAllies(_bossTransform, _enemyprefabs)
 
         return root;
     }
     
+
+
 }
