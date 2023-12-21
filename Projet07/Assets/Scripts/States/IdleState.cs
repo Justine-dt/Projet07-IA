@@ -10,7 +10,7 @@ public class IdleState : State
         base.OnEnter(brain);
         if (!_brain.Ismoving) return;
         _random = -1;
-        _waypoint = new GameObject("Waypoint");
+        //_waypoint = new GameObject("Waypoint");
         _brain.Destination.target = _waypoint.GetComponent<Transform>();
         _brain.Destination.target.position = _brain.Render.position;
     }
@@ -33,11 +33,11 @@ public class IdleState : State
         if (!_hurted) return;
         if (_brain.IsFleeing)
         {
-            Debug.Log("FUIT");
+            //Debug.Log("FUIT");
             _brain.ChangeState(new RunAwayState(), damageDealer);
             return;
         }
-        Debug.Log($"=> HURTED : {source.transform.parent.name}");
+        //Debug.Log($"=> HURTED : {source.transform.parent.name}");
         if (!_brain.Ismoving) return;
         _brain.ChangeState(new ChaseState(), damageDealer);
     }

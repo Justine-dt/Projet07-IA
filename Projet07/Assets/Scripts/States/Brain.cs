@@ -74,7 +74,7 @@ public abstract class Brain : MonoBehaviour
     {
         if (!IsTriggerValid(collision)) return;
         if (!_isAggressive) return;
-        Debug.Log("COLLISION");
+        //Debug.Log("COLLISION");
         ChangeState(_chaseState, collision.gameObject);
     }
 
