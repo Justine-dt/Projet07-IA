@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using BehaviorTree;
-using UnityEditor.Rendering;
 
 public class BossMovement : Node
 {
@@ -26,8 +21,8 @@ public class BossMovement : Node
     {
         _bossTransform.Translate(direction * Time.deltaTime * _speed);
 
-        state = NodeState.RUNNING;
-        return state;
+        _state = NodeState.RUNNING;
+        return _state;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

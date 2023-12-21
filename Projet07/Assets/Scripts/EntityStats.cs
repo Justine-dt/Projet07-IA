@@ -24,6 +24,7 @@ public class EntityStats : MonoBehaviour
 
     public void TakeDamage(int damage, GameObject source)
     {
+        //Debug.Log($"{gameObject.name} took damage from {source.transform.parent.name}");
         _stats[Attribute.HP] -= damage;
         OnHurt?.Invoke(_sprite, source);
     }
@@ -31,5 +32,10 @@ public class EntityStats : MonoBehaviour
     public void Kill()
     {
         _stats[Attribute.HP] = 0;
+    }
+
+    public void BoostStat(Attribute attr)
+    {
+        _stats[attr] += 5;
     }
 }

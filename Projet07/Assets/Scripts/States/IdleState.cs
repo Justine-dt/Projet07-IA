@@ -23,16 +23,15 @@ public class IdleState : State
 
     public override void OnUpdate()
     {
-        if (!_brain.Ismoving)
-        {
-            return;
-        }
+        if (!_brain.Ismoving) return;
         if (_random == -1 || WaitFor(_random)) NewDestination();
     }
 
     public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
     {
         base.OnHurt(source, damageDealer);
+        if (!_hurted) return;
+        Debug.Log($"=> HURTED : {source.transform.parent.name}");
         if (!_brain.Ismoving) return;
         _brain.ChangeState(new ChaseState(), damageDealer);
     }

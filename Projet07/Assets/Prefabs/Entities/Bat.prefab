@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[1].Value
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[2].Value
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2341898942853211783, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalScale.x
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30fbcb8b0291a747be94f93d4fa758b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 302917495157239956}
   _sprite: {fileID: 5481373338580671124}
   _entityMove: {fileID: 0}

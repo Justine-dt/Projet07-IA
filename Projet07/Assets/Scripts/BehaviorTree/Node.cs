@@ -1,77 +1,62 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace BehaviorTree
+public enum NodeState
 {
-    public enum NodeState
+    RUNNING,
+    SUCCESS,
+    FAILURE
+}
+
+public class Node
+{
+    public Node Parent;
+    protected List<Node> _children;
+    protected NodeState _state;
+
+    private readonly Dictionary<string, object> _dataContext = new();
+
+    public Node()
     {
-        RUNNING,
-        SUCCESS,
-        FAILURE
+        Parent = null;
     }
 
-    public class Node
+    public Node(List<Node> children)
     {
-        protected NodeState state;
+        foreach (Node child in children) Attach(child);
+    }
 
-        public Node parent;
-        protected List<Node> children;
+    private void Attach(Node node)
+    {
+        node.Parent = this;
+        _children.Add(node);
+    }
 
-        private Dictionary<string, object>  _dataContext = new Dictionary<string, object>();
+    public virtual NodeState Evaluate() => NodeState.FAILURE;
 
-        public Node()
+    public void SetData(string key, object value)
+    {
+        _dataContext[key] = value;
+    }
+
+    public object GetData(string key)
+    {
+        if (_dataContext.TryGetValue(key, out object val)) return val;
+        if (Parent != null) val = Parent.GetData(key);
+        return val;
+    }
+
+    public bool ClearData(string key)
+    {
+        bool cleared = false;
+
+        if (_dataContext.ContainsKey(key))
         {
-            parent = null;
+            _dataContext.Remove(key);
+            return true;
         }
 
-        public Node(List<Node> children)
-        {
-            foreach(Node child in children)
-            {
-                _Attach(child);
-            }
-        }
+        if (Parent != null) cleared = Parent.ClearData(key);
 
-        private void _Attach(Node node)
-        {
-            node.parent = this;
-            children.Add(node);
-        }
-
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
-
-        public void SetData(string key, object value)
-        {
-            _dataContext[key] = value;
-        }
-
-        public object GetData(string key)
-        {
-            object val = null;
-            if (_dataContext.TryGetValue(key, out val))
-                return val;
-
-            Node node = parent;
-            if (node != null)
-                val = node.GetData(key);
-            return val;
-        }
-
-        public bool ClearData(string key)
-        {
-            bool cleared = false;
-            if (_dataContext.ContainsKey(key))
-            {
-                _dataContext.Remove(key);
-                return true;
-            }
-
-            Node node = parent;
-            if (node != null)
-                cleared = node.ClearData(key);
-            return cleared;
-        }
-
+        return cleared;
     }
 }
