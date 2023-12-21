@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050ae23d62a673d4dabc805902dedf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 0}
   _sprite: {fileID: 521008340365910427}
   _entityMove: {fileID: 0}
@@ -171,6 +172,8 @@ MonoBehaviour:
   _entityStats: {fileID: 2553640573657870630}
   _render: {fileID: 6089479299610254038}
   _isAggressive: 0
+  _isFleeing: 0
+  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
