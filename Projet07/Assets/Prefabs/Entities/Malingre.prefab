@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8030950265850576390, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Layer
@@ -153,12 +153,15 @@ MonoBehaviour:
   _entityStats: {fileID: 4317193900102743652}
   _render: {fileID: 2401023714738312768}
   _isAggressive: 0
+  _isFleeing: 0
+  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 0
+  _ismoving: 0
   _malingre: {fileID: 431371076209643469}
-  renderer: {fileID: 2279776044610954969}
+  _renderer: {fileID: 0}
 --- !u!212 &2279776044610954969 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
