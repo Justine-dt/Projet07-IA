@@ -52,7 +52,7 @@ public class PlayerBrain : Brain
         // Stop the movement coroutine when the move action is canceled (button released)
         StopCoroutine(_move);
         // Reset direction
-        _entityMove._direction = Vector2.zero;
+        _entityMove.Direction = Vector2.zero;
         // Send reset to the function
         _entityMove.UpdateMove();
     }
@@ -75,7 +75,7 @@ public class PlayerBrain : Brain
         while (true)
         {
             // Continuously update the player's position based on the input direction
-            _entityMove._direction = (obj.ReadValue<Vector2>());
+            _entityMove.Direction = (obj.ReadValue<Vector2>());
             _entityMove.UpdateMove();
             yield return null;
         }

@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] private float _bulletSpeed = 6f;
-    [SerializeField] private Vector2 _direction;
+    [SerializeField] private float _bulletSpeed = 10f;
     [SerializeField] private Rigidbody2D _rigidbodyBullet;
-    [SerializeField] private float _lifeTime = 0.01f;
+    [SerializeField] private float _lifeTime = 1f;
 
+    private Vector2 _direction;
     public Vector2 Direction { get => _direction; set => _direction = value; }
 
     private void Start()
