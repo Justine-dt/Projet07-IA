@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068e11fa1efd8d4898e62ac647749c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 9096547802786876118}
   _sprite: {fileID: 885442746188714021}
   _entityMove: {fileID: 0}
@@ -281,6 +282,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 0
+  _ismoving: 1
 --- !u!4 &6913423483021945704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

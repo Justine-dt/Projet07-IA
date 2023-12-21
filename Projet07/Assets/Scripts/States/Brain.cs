@@ -16,10 +16,13 @@ public abstract class Brain : MonoBehaviour
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
     [SerializeField] protected bool _dealDamageOnCollide;
+    [SerializeField] protected bool _ismoving;
+    
 
     public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
     public EntityMove EntityMove => _entityMove;
+    public bool Ismoving => _ismoving;
     public EntityShoot EntityShoot => _entityShoot;
     public EntityStats EntityStats => _entityStats;
     public Transform Render => _render;
@@ -47,7 +50,7 @@ public abstract class Brain : MonoBehaviour
         if (_entityStats.IsDead) ChangeState(_deathState);
     }
 
-    protected void ChangeState(State newState)
+    public void ChangeState(State newState)
     {
         if (this is PlayerBrain && newState is not DeathState) return;
         if (_currentState != null && _currentState is DeathState) return;

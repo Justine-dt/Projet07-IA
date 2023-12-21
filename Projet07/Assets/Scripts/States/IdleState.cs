@@ -8,6 +8,7 @@ public class IdleState : State
     public override void OnEnter(Brain brain)
     {
         base.OnEnter(brain);
+        if (!_brain.Ismoving) return;
         _random = -1;
         _waypoint = new GameObject("Waypoint");
         _brain.Destination.target = _waypoint.GetComponent<Transform>();
@@ -22,6 +23,7 @@ public class IdleState : State
 
     public override void OnUpdate()
     {
+        if (!_brain.Ismoving) return;
         if (_random == -1 || WaitFor(_random)) NewDestination();
     }
 
@@ -30,6 +32,7 @@ public class IdleState : State
         base.OnHurt(source, damageDealer);
         if (!_hurted) return;
         Debug.Log($"=> HURTED : {source.transform.parent.name}");
+        if (!_brain.Ismoving) return;
         _brain.ChangeState(new ChaseState(), damageDealer);
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class State
 {
     public bool Chasing => _chasing;
+    
 
     protected Brain _brain;
     protected bool _chasing;
