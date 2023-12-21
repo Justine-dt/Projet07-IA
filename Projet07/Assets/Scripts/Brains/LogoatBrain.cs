@@ -14,14 +14,11 @@ public class LogoatBrain : MonoBehaviour
         direction.Set(1.0f, 1.0f);
     }
 
-
     void Update()
     {
         //entityMove.Move(direction);
         _logoat.transform.Translate(direction * Time.deltaTime * 3);
     }
-
-    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
