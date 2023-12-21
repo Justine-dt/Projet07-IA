@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[0].Value
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[1].Value
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[2].Value
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
@@ -110,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367033264534146376, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7367033264534146376, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _speed

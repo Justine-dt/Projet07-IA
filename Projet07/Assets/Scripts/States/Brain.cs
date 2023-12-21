@@ -44,7 +44,7 @@ public abstract class Brain : MonoBehaviour
     protected virtual void Awake()
     {
         ChangeState(_idleState);
-        Debug.Log("First IdleState");
+        //Debug.Log("First IdleState");
     }
 
     protected virtual void Update()

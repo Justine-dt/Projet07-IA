@@ -30,11 +30,11 @@ public class ChaseState : State
         if (!_hurted) return;
         if (_brain.IsFleeing)
         {
-            Debug.Log("FUIT");
+            //Debug.Log("FUIT");
             _brain.ChangeState(new RunAwayState(), damageDealer);
             return;
         }
-        Debug.Log($"=> HURTED : {source.transform.parent.name}");
+        //Debug.Log($"=> HURTED : {source.transform.parent.name}");
         if (!_brain.Ismoving) return;
         _brain.ChangeState(new ChaseState(), damageDealer);
     }
