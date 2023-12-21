@@ -153,6 +153,8 @@ MonoBehaviour:
   _entityStats: {fileID: 8574065049400157244}
   _render: {fileID: 76355613347368908}
   _isAggressive: 0
+  _isFleeing: 0
+  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
@@ -252,7 +254,7 @@ MonoBehaviour:
   radius: 0.66
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
