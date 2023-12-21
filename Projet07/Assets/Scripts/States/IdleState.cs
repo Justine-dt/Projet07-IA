@@ -18,7 +18,7 @@ public class IdleState : State
     public override void OnExit()
     {
         base.OnExit();
-        //Object.Destroy(_waypoint);
+        Object.Destroy(_waypoint);
     }
 
     public override void OnUpdate()

@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631c66e148f1334a9e64caa5af5a9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 6866926118220118642}
   _sprite: {fileID: 8052322168532196528}
   _entityMove: {fileID: 2104553106284152579}
@@ -208,6 +209,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 0
+  _ismoving: 0
 --- !u!114 &5473347546614926349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -273,7 +275,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 4
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
