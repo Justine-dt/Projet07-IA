@@ -228,7 +228,7 @@ BlendTree:
   m_Name: WalkTree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1ec1b7d155feda048a4b4049598a2562, type: 2}
+    m_Motion: {fileID: 7400000, guid: bc34369ebad634247b975ec13f5963da, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1

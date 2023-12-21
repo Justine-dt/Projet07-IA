@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.41
+      value: 19.64
       objectReference: {fileID: 0}
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.57
+      value: -0.57
       objectReference: {fileID: 0}
     - target: {fileID: 80473993727343751, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _stats._serializedList.Array.data[2].Value
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Name
@@ -203,6 +203,7 @@ MonoBehaviour:
   _entityStats: {fileID: 5473347546614926349}
   _render: {fileID: 4325508578871273469}
   _isAggressive: 0
+  _isFleeing: 1
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
@@ -281,7 +282,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5

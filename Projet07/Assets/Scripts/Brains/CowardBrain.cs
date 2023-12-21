@@ -8,4 +8,5 @@ public class CowardBrain : Brain
     // Idle State
     // Attack State
     // RunAway State
+
 }

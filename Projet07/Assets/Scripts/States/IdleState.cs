@@ -17,7 +17,7 @@ public class IdleState : State
     public override void OnExit()
     {
         base.OnExit();
-        Object.Destroy(_waypoint);
+        //Object.Destroy(_waypoint);
     }
 
     public override void OnUpdate()
@@ -28,6 +28,12 @@ public class IdleState : State
     public override void OnHurt(SpriteRenderer source, GameObject damageDealer)
     {
         base.OnHurt(source, damageDealer);
+        if (_brain.IsFleeing)
+        {
+            Debug.Log("FUIT");
+            _brain.ChangeState(new RunAwayState(), damageDealer);
+            return;
+        }
         _brain.ChangeState(new ChaseState(), damageDealer);
     }
 
