@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 4111400320121442642, guid: ab6a3590411914b4589f492b957279de, type: 3}
   - {fileID: 1591552916851259697, guid: 2af1941c426b59f49977ceb56813b50d, type: 3}
   - {fileID: 4582517699233522862, guid: f6dffcbd34abe794a9bbafbce5b17d46, type: 3}
+  _animator: {fileID: 282236863595463469}
 --- !u!114 &5006698160368701753
 MonoBehaviour:
   m_ObjectHideFlags: 0
