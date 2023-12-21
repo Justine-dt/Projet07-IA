@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ab0f8905ac6fc4bb5bce91791bd72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 7944515161774303925}
   _sprite: {fileID: 6132256368845587345}
   _entityMove: {fileID: 0}
+  _entityShoot: {fileID: 0}
   _entityStats: {fileID: 8165169525743637292}
   _render: {fileID: 478214812282697948}
   _isAggressive: 1
@@ -109,6 +111,7 @@ MonoBehaviour:
   _additionalTargets: []
   _isAlwaysChasing: 0
   _dealDamageOnCollide: 1
+  _ismoving: 1
 --- !u!1 &5712195057349208709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
