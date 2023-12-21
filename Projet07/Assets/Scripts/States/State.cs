@@ -23,7 +23,7 @@ public abstract class State
         _collided = false;
 
         if (this is IdleState) return;
-        Debug.Log($"New state for {_brain.transform.parent.name} : {GetType().Name}");
+        //Debug.Log($"New state for {_brain.transform.parent.name} : {GetType().Name}");
     }
 
     public virtual void OnCollide(Transform source)
