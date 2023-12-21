@@ -15,7 +15,10 @@ public class EntityShoot : MonoBehaviour
     [SerializeField] private Brain _brain;
     [SerializeField] private GameObject _render;
     private Vector2 _targetPosition;
+    public Vector2 TargetPosition => _targetPosition;
     private Vector2 _targetDirection;
+    public Vector2 TargetDirection => _targetDirection;
+
     private float _shootRate;
 
     Coroutine _shootRoutine;
