@@ -12,6 +12,8 @@ public abstract class Brain : MonoBehaviour
     [SerializeField] protected EntityStats _entityStats;
     [SerializeField] protected Transform _render;
     [SerializeField] protected bool _isAggressive;
+    [SerializeField] protected bool _isFleeing;
+    [SerializeField] protected bool _isCoward;
     [SerializeField] protected bool _canAttackAnybody;
     [SerializeField, Tag] protected string[] _additionalTargets;
     [SerializeField] protected bool _isAlwaysChasing;
@@ -21,6 +23,8 @@ public abstract class Brain : MonoBehaviour
 
     public AIDestinationSetter Destination => _destination;
     public bool DealDamageOnCollide => _dealDamageOnCollide;
+    public bool IsFleeing => _isFleeing;
+    public bool IsCoward => _isCoward;
     public EntityMove EntityMove => _entityMove;
     public bool Ismoving => _ismoving;
     public EntityShoot EntityShoot => _entityShoot;
@@ -42,6 +46,7 @@ public abstract class Brain : MonoBehaviour
     protected virtual void Awake()
     {
         ChangeState(_idleState);
+        Debug.Log("First IdleState");
     }
 
     protected virtual void Update()
@@ -71,6 +76,7 @@ public abstract class Brain : MonoBehaviour
     {
         if (!IsTriggerValid(collision)) return;
         if (!_isAggressive) return;
+        Debug.Log("COLLISION");
         ChangeState(_chaseState, collision.gameObject);
     }
 
