@@ -7,11 +7,6 @@ public class DeathState : State
         base.OnEnter(brain);
 
         //TODO -> Add death animation
-
-        _brain.Sprite.color = Color.black;
-        _brain.ClearDestinationTarget();
-
-        //TODO -> delete object
-        _brain.Render.gameObject.SetActive(false);
+        Object.Destroy(_brain.transform.parent.gameObject);
     }
 }
