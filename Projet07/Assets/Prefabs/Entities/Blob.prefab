@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blob
       objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Size.x
       value: 0.96844715

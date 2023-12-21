@@ -15,12 +15,6 @@ public class IdleState : State
         _brain.Destination.target.position = _brain.Render.position;
     }
 
-    public override void OnExit()
-    {
-        base.OnExit();
-        Object.Destroy(_waypoint);
-    }
-
     public override void OnUpdate()
     {
         if (!_brain.Ismoving) return;
@@ -31,13 +25,14 @@ public class IdleState : State
     {
         base.OnHurt(source, damageDealer);
         if (!_hurted) return;
+        Debug.Log($"=> HURTED : {source.transform.parent.name}");
+
         if (_brain.IsFleeing)
         {
-            //Debug.Log("FUIT");
             _brain.ChangeState(new RunAwayState(), damageDealer);
             return;
         }
-        //Debug.Log($"=> HURTED : {source.transform.parent.name}");
+
         if (!_brain.Ismoving) return;
         _brain.ChangeState(new ChaseState(), damageDealer);
     }
@@ -47,16 +42,6 @@ public class IdleState : State
         _random = Random.Range(2f, 4f);
         Vector2 destination = new(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
         _brain.Destination.target.Translate(destination);
-
-        //if (destination.x < 0)
-        //{
-        //    _brain.Sprite.flipX = true;
-        //}
-        //else if (_brain.Sprite.flipX = true && destination.x > 0)
-        //{
-        //    _brain.Sprite.flipX = false;
-        //}
-
         _brain.Sprite.flipX = destination.x < 0;
 
         ResetCooldown();

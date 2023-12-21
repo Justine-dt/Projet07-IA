@@ -10,6 +10,7 @@ public class ChaseState : State
 
         _chasing = true;
         _brain.Destination.target = _brain.Target.transform;
+        //Debug.Log($"Chasing {_brain.Target.transform.parent.name} at {_brain.Target.transform.position}");
     }
 
     public override void OnExit()
