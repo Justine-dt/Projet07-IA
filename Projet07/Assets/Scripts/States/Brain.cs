@@ -49,7 +49,7 @@ public abstract class Brain : MonoBehaviour
 
     protected void ChangeState(State newState)
     {
-        if (this is PlayerBrain) return;
+        if (this is PlayerBrain && newState is not DeathState) return;
         if (_currentState != null && _currentState is DeathState) return;
         if (_currentState != null && _currentState.GetType() == newState.GetType()) return;
         
