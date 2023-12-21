@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,5 +16,11 @@ public class GameManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(this);
+    }
+
+    public void GameOver()
+    {
+        //TODO -> add game over scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
