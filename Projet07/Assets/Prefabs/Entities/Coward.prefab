@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coward
       objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138340797336634337, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Size.x
       value: 1.0625
@@ -92,6 +100,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030950265850576390, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: _speed
       value: 4
@@ -107,17 +123,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2196883647107660049}
   m_SourcePrefab: {fileID: 100100000, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
---- !u!114 &3042862050703884465 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8820676419871625247, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
-  m_PrefabInstance: {fileID: 5788036542213918894}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed051bdee2d997f468317831a0274663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4088139948932987061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7559504241314752539, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -166,8 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631c66e148f1334a9e64caa5af5a9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
+  _destination: {fileID: 0}
   _sprite: {fileID: 8052322168532196528}
-  _entityMove: {fileID: 3042862050703884465}
+  _entityMove: {fileID: 0}
   _entityShoot: {fileID: 0}
   _entityStats: {fileID: 5473347546614926349}
   _render: {fileID: 4325508578871273469}
@@ -175,6 +182,7 @@ MonoBehaviour:
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
+  _dealDamageOnCollide: 0
 --- !u!114 &5473347546614926349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1992279926591003811, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}

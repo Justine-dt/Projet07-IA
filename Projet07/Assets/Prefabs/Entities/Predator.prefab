@@ -81,8 +81,16 @@ PrefabInstance:
       value: Predator
       objectReference: {fileID: 0}
     - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138340797336634337, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Size.x
@@ -151,6 +159,14 @@ PrefabInstance:
     - target: {fileID: 7805995665110267731, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030950265850576390, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4242202820620690586, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
@@ -303,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73b2144a9a16db47a6c3a0bfc81a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 6651798456618202546}
   _sprite: {fileID: 2544900203121850438}
   _entityMove: {fileID: 0}

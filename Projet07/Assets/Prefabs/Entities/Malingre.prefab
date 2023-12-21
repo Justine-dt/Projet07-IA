@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Malingre
       objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716595567317280010, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138340797336634337, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4606237701920345118, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -87,6 +99,14 @@ PrefabInstance:
     - target: {fileID: 7114305780806908305, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888605028596233100, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030950265850576390, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9079508088356814591, guid: 105ea65ff2ce48043819f397cd0d112c, type: 3}
       propertyPath: m_Constraints
@@ -125,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f1a713adabf7c4d962b85be48adc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiPath: {fileID: 0}
   _destination: {fileID: 0}
   _sprite: {fileID: 2279776044610954969}
   _entityMove: {fileID: 0}

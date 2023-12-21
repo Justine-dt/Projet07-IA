@@ -32,6 +32,7 @@ public class BossMovement : Node
         if(canMove)
         {
             _bossTransform.Translate(direction * Time.deltaTime * _speed);
+            Debug.Log(_speed);
         }
 
         state = NodeState.RUNNING;

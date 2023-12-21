@@ -26,7 +26,11 @@ public class SpawnEnemies : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
+            Debug.Log("avant le premier wait");
+
+            yield return new WaitForSeconds(2.0f);
+
+            Debug.Log("boucle");
 
             if (GameObject.FindGameObjectsWithTag("Enemy").Length < 8)
             {
@@ -39,9 +43,9 @@ public class SpawnEnemies : MonoBehaviour
                     Debug.Log("Wtf les amis");
 
                     Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(3, 0, 0)), Quaternion.identity);
-                    //Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(-3, 0, 0)), Quaternion.identity);
-                    //Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(0, 3, 0)), Quaternion.identity);
-                    //Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(0, -3, 0)), Quaternion.identity);
+                    Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(-3, 0, 0)), Quaternion.identity);
+                    Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(0, 4, 0)), Quaternion.identity);
+                    Instantiate(_enemyPrefabs[UnityEngine.Random.Range(0, _enemyPrefabs.Count)], (transform.position + new Vector3(0, -4, 0)), Quaternion.identity);
 
                     areEnemiesInstantiated = true;
                 }
