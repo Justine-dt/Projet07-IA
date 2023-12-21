@@ -44,7 +44,6 @@ public abstract class Brain : MonoBehaviour
     protected virtual void Awake()
     {
         ChangeState(_idleState);
-        //Debug.Log("First IdleState");
     }
 
     protected virtual void Update()
@@ -74,7 +73,6 @@ public abstract class Brain : MonoBehaviour
     {
         if (!IsTriggerValid(collision)) return;
         if (!_isAggressive) return;
-        Debug.Log("COLLISION");
         ChangeState(_chaseState, collision.gameObject);
     }
 
