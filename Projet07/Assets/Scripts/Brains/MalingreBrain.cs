@@ -20,7 +20,7 @@ public class MalingreBrain : Brain
 
     void Start()
     {
-
+        
     }
 
 

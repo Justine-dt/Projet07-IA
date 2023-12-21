@@ -8,6 +8,8 @@ TagManager:
   - PlayerBrain
   - BatBrain
   - Enemy
+  - UDWall
+  - LRWall
   layers:
   - Default
   - TransparentFX
