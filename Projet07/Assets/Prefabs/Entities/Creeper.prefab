@@ -194,7 +194,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -303,7 +303,6 @@ MonoBehaviour:
   _render: {fileID: 6913423483021945704}
   _isAggressive: 1
   _isFleeing: 0
-  _isCoward: 0
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
