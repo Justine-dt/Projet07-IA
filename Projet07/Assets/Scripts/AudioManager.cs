@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _audio;
     [SerializeField] private AudioClip _deathSong;
     [SerializeField] private AudioClip _gameSong;
-    private AudioSource _audio;
 
     [Range(0f, 1f)]
     [SerializeField] private float _volume;
 
     private void Awake()
     {
-        _audio = GetComponent<AudioSource>();
         _volume = 0.5f;
     }
 

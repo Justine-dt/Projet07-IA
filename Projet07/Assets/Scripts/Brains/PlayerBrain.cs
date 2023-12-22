@@ -38,7 +38,16 @@ public class PlayerBrain : Brain
     protected override void Update()
     {
         base.Update();
-        if (_currentState != null && _currentState is DeathState) GameManager.Instance.GameOver();
+
+        if (_currentState != null && _currentState is DeathState)
+        {
+            CancelMove();
+            _moveAction.action.started -= StartMove;
+            _moveAction.action.canceled -= CancelMove;
+
+            _shootAction.action.performed -= StartShoot;
+            _shootAction.action.canceled -= CancelShoot;
+        }
     }
 
     private void StartMove(InputAction.CallbackContext obj)
@@ -47,7 +56,9 @@ public class PlayerBrain : Brain
         _move = StartCoroutine(Move(obj));
     }
 
-    private void CancelMove(InputAction.CallbackContext obj)
+    private void CancelMove(InputAction.CallbackContext obj) => CancelMove();
+
+    private void CancelMove()
     {
         // Stop the movement coroutine when the move action is canceled (button released)
         StopCoroutine(_move);

@@ -7,6 +7,13 @@ public class DeathState : State
         base.OnEnter(brain);
 
         //TODO -> Add death animation
+        if (brain is PlayerBrain)
+        {
+            GameManager.Instance.GameOver();
+            brain.Sprite.color = Color.black;
+            return;
+        }
+
         Object.Destroy(_brain.transform.parent.gameObject);
     }
 }
