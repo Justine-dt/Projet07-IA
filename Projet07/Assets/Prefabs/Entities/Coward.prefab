@@ -203,12 +203,12 @@ MonoBehaviour:
   _entityShoot: {fileID: 0}
   _entityStats: {fileID: 5473347546614926349}
   _render: {fileID: 4325508578871273469}
-  _isAggressive: 0
+  _isAggressive: 1
   _isFleeing: 1
   _canAttackAnybody: 0
   _additionalTargets: []
   _isAlwaysChasing: 0
-  _dealDamageOnCollide: 0
+  _dealDamageOnCollide: 1
   _ismoving: 1
 --- !u!114 &5473347546614926349 stripped
 MonoBehaviour:
